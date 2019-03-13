@@ -1,9 +1,10 @@
-<template>
-  <div>
-    <div v-for="post in posts" :key="post.fields.title">
-      {{ post.fields.title }}
-    </div>
-  </div>
+<template lang="pug">
+  div
+    div(v-for='post in posts', :key='post.fields.title')
+      nuxt-link(:to='{path:`./posts/${post.fields.date}`}')
+        div {{post.fields.title}}
+        div {{post.fields.date}}
+        div {{post.sys.id}}
 </template>
 
 <script>
@@ -17,6 +18,7 @@
         order: '-sys.createdAt',
       })
 
+      console.dir(content.items[0].sys)
       return { posts: content.items}
 
     }
