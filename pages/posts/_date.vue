@@ -2,7 +2,8 @@
   div
     h1 {{getPosts().curr.title}}
     div {{getPosts().curr.date}}
-    div(v-for='tag in getPosts().curr.tags'): div {{tag}}
+    div(v-for='tag in getPosts().curr.tags')
+      div {{tag}}
     div {{getPosts().curr.body}}
     nuxt-link(v-if='getPosts().prev' :to='{name:"posts-date", params:{date: getPosts().prev.date}}')
       div {{getPosts().prev.title}}

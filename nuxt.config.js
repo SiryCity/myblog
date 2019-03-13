@@ -1,6 +1,18 @@
 const config = require('./.contentful.json')
 
 module.exports = {
+  css: [
+    { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' }
+  ],
+  modules: [
+    '@nuxtjs/markdownit'
+  ],
+  markdownit: {
+    injected: true,
+    use: [
+      'markdown-it-highlightjs'
+    ]
+  },
   /*
   ** Headers of the page
   */
