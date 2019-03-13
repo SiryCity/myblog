@@ -1,5 +1,5 @@
 <template lang="pug">
-  div {{filterPosts()}}
+  div {{getThisPost()}}
 </template>
 
 <script>
@@ -10,23 +10,18 @@
     async asyncData({env}){
       const contents = await createClient().getEntries({
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
-        order: '-sys.createdAt',
+        order: '-fields.date',
       })
-
-      return {posts: contents.items}
-
+      return {posts: contents.items.map(item => item.fields)}
     },
     methods:{
-      filterPosts(){
-        console.dir(this.posts)
-        const post = this.posts.reduce((pre, cur) =>
-          pre
-          || (cur.fields.date === this.$route.params.date
-              ? cur
-              : pre
-            ) 
-        ,null)
-        return post
+      getThisPost(){
+        return this.posts.reduce((... post) =>
+          post[0]
+          || post[1].date !== this.$route.params.date
+            ? post[0]
+            : post[1]
+        , null)
       }
     }
 
