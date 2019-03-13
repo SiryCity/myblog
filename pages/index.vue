@@ -1,10 +1,9 @@
 <template lang="pug">
   div
     div(v-for='post in posts', :key='post.fields.title')
-      nuxt-link(:to='{path:`./posts/${post.fields.date}`}')
+      nuxt-link(:to='{name:"posts-date", params:{date: post.fields.date}}')
         div {{post.fields.title}}
         div {{post.fields.date}}
-        div {{post.sys.id}}
 </template>
 
 <script>
@@ -13,13 +12,12 @@
   export default {
 
     async asyncData({env}){
-      const content = await createClient().getEntries({
+      const contents = await createClient().getEntries({
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
-        order: '-sys.createdAt',
+        order: '-fields.date',
       })
 
-      console.dir(content.items[0].sys)
-      return { posts: content.items}
+      return {posts: contents.items}
 
     }
   }
