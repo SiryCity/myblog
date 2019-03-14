@@ -1,14 +1,14 @@
 <template lang="pug">
   div
-    h1 {{getPosts().curr.title}}
-    div {{getPosts().curr.date}}
-    div(v-for='tag in getPosts().curr.tags')
-      div {{tag}}
-    div {{getPosts().curr.body}}
-    nuxt-link(v-if='getPosts().prev' :to='{name:"posts-date", params:{date: getPosts().prev.date}}')
-      div {{getPosts().prev.title}}
-    nuxt-link(v-if='getPosts().next' :to='{name:"posts-date", params:{date: getPosts().next.date}}')
-      div {{getPosts().next.title}}
+    h1 {{getNearbyPosts().curr.title}}
+    div {{getNearbyPosts().curr.date}}
+    div(v-for='tag in getNearbyPosts().curr.tags')
+      nuxt-link(:to='{name:"tags-tagname", params:{tagname: tag}}') {{tag}}
+    div(v-html='$md.render(getNearbyPosts().curr.body)')
+    nuxt-link(v-if='getNearbyPosts().prev' :to='{name:"posts-date", params:{date: getNearbyPosts().prev.date}}')
+      div {{getNearbyPosts().prev.title}}
+    nuxt-link(v-if='getNearbyPosts().next' :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}')
+      div {{getNearbyPosts().next.title}}
     nuxt-link(to='../') home
 </template>
 
@@ -24,8 +24,9 @@
       })
       return {posts: contents.items.map(item => item.fields)}
     },
+
     methods:{
-      getPosts(){
+      getNearbyPosts(){
         return this.posts.reduce((... post) =>
           post[0]
           || post[1].date !== this.$route.params.date
