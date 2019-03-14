@@ -1,12 +1,12 @@
 <template lang="pug">
-  div#root
-    div#root-wrapper
+  div#root-wrapper
+    div#root
       header#header
         div title
       nav#nav
         div.nav__btn あああ
         div.nav__btn aaa
-      main.main
+      main.main-wrapper
         nuxt
       footer#footer
         div test
@@ -26,18 +26,20 @@ html
   box-sizing border-box
   margin 0
 
-#root
+#root-wrapper
   width 100%
   display flex
   justify-content center
+  background-color #f6f6f6
 
-#root-wrapper
+#root
   width 100%
   max-width 1100px
   display flex
   flex-direction column
   align-items center
   justify-content flex-start
+  background-color #fefefe
   box-shadow 1px 1px 4px 1px rgba(0,0,0,0.1)
 
 #header
@@ -78,9 +80,10 @@ html
 .nav__btn:nth-of-type(n+2)
   border-left 1px solid #0475C2
 
-.main
+.main-wrapper
   width calc(100% - 80px)
   margin 15px
+  background-color #f6f6f6
   box-shadow 1px 1px 2px rgba(128,128,128,0.5) inset
   
 </style>
