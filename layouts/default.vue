@@ -2,14 +2,14 @@
   div#root-wrapper
     div#root
       header#header
-        div title
+        h1 JavaScriptに関するお知らせ
       nav#nav
         div.nav__btn あああ
         div.nav__btn aaa
       main.main-wrapper
         nuxt
       footer#footer
-        div test
+        div &copy; 2019 JavaScriptに関するお知らせ
 </template>
 
 <style lang="stylus">
@@ -52,6 +52,10 @@ html
   align-items center
   color white
   font-weight normal
+
+  h1
+    font-size 22px
+    font-weight normal
 
 #footer
   width 100vw

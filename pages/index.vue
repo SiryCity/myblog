@@ -2,17 +2,24 @@
   div.main
     div.section__wrapper__left
       section.section
-        div.title Blog
-        div(v-for='post in posts', :key='post.title')
-            p.link {{post.date}}
-            nuxt-link.link(:to='{name:"posts-date", params:{date: post.date}}')
-              p.link {{post.title}}
-            hr.hr
+        div.title BLOG
+        div.post-small(v-for='(post, i) in posts', :key='`post-small${i}`')
+            p {{String(post.date).replace(/-/g, '/')}}
+            nuxt-link(:to='{name:"posts-date", params:{date: post.date}}') {{post.title}}
+            hr(v-if='i + 1 !== posts.length')
     div.section__wrapper__right
       section.section
-        div.title Author
+        div.title AUTHOR
       section.section
-        div.title Blog
+        div.title BLOG
+        div.post-large(v-for='(post, i) in posts', :key='`post-large${i}`')
+          div.post-large__top
+            img(src='~/assets/icon.svg')
+            nuxt-link(:to='{name:"posts-date", params:{date: post.date}}')
+              p DAIDOooo Taro
+              p {{String(post.date).replace(/-/g, '/')}}
+              p {{post.title}}
+          hr(v-if='i + 1 !== posts.length')
 </template>
 
 <script>
@@ -40,13 +47,14 @@
 
 .title
   color #0475C2
-  font-size 24px
+  display inline-block
+  font-size 22px
+  height 41px
+  border-bottom 3px solid #0475c2
 
 .title:first-letter
   font-size 40px
 
-.title:not(:first-letter)
-  text-decoration underline
 
 .section__wrapper__left
   width 645px
@@ -62,9 +70,57 @@
   padding 15px
   background-color #fefefe
   box-shadow 1px 1px 2px rgba(128,128,128,0.5)
+  overflow scroll
 .link
   display inline-block
-.hr
-  border-top 1px dotted #cccccc
+
+.post-small
+  p
+    font-size 12px
+    padding 0 4px
+    margin 10px 4px 10px 0
+    display inline-block
+    border 1px solid #ccc
+    font-weight bold
+  a
+    color #09c
+    text-decoration none
+    &:hover
+      text-decoration underline
+  hr
+    border-top 1px dotted #cccccc
+
+
+.post-large
+  height 70px
+  margin 10px 0
+
+  .post-large__top
+    height 69px
+    display flex
+    flex-direction column
+    flex-wrap wrap
+    justify-content flex-start
+    align-items flex-start
+
+    img
+      width 60px
+      height 60px
+      border 1px solid #cccccc
+      box-sizing border-box
+
+    a
+      width calc(100% - 60px)
+      height calc(100% - 9px)
+      padding-left 2px
+      color #09c
+      display block
+      text-decoration none
+      &:hover
+        background-color #D9F0F7
+        text-decoration underline
+    
+  hr
+    border-top 1px dotted #cccccc
 
 </style>
