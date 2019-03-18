@@ -1,17 +1,14 @@
 <template lang="pug">
   div.main
     div.section__wrapper__left
-      section.section
-        div.title BLOG
+      section-wrapper(title='BLOG')
         div.post-small(v-for='(post, i) in posts', :key='`post-small${i}`')
             p {{String(post.date).replace(/-/g, '/')}}
             nuxt-link(:to='{name:"posts-date", params:{date: post.date}}') {{post.title}}
             hr(v-if='i + 1 !== posts.length')
     div.section__wrapper__right
-      section.section
-        div.title AUTHOR
-      section.section
-        div.title BLOG
+      section-wrapper(title='AUTHOR')
+      section-wrapper(title='BLOG')
         div.post-large(v-for='(post, i) in posts', :key='`post-large${i}`')
           div.post-large__top
             img(src='~/assets/icon.svg')
@@ -24,8 +21,12 @@
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
+  import SectionWrapper from '~/components/SectionWrapper.vue'
 
   export default {
+    components:{
+      SectionWrapper
+    },
     async asyncData({env}){
       const contents = await createClient().getEntries({
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
@@ -55,7 +56,6 @@
 .title:first-letter
   font-size 40px
 
-
 .section__wrapper__left
   width 645px
   margin 15px 0
@@ -71,8 +71,6 @@
   background-color #fefefe
   box-shadow 1px 1px 2px rgba(128,128,128,0.5)
   overflow scroll
-.link
-  display inline-block
 
 .post-small
   p
