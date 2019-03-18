@@ -7,9 +7,7 @@
           :key='`post-small${i}`'
           :class='{"post--notfirst": i}'
         )
-          div
-            p.post-small__date {{String(post.date).replace(/-/g, '/')}}
-            p.post-small__tag(v-for='(tag, j) in post.tags', :key='`post-small${i}-${j}`') {{tag}}
+          tag-box(:date='post.date' :tags='post.tags')
           nuxt-link(:to='{name:"posts-date", params:{date: post.date}}') {{post.title}}
     div.section__area__right
       section-wrapper(title='AUTHOR')
@@ -25,7 +23,7 @@
           img(src='~/assets/icon.svg')
           nuxt-link(:to='{name:"posts-date", params:{date: post.date}}')
             p.post-large__tag {{post.tags[0]}}
-            p.post-large__date {{String(post.date).replace(/-/g, '/')}}
+            p.post-large__date {{post.date.replace(/-/g, '/')}}
             p.post-large__title {{post.title}}
 </template>
 
@@ -33,11 +31,13 @@
   import {createClient} from '~/plugins/contentful.js'
   import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SectionWrapper from '~/components/SectionWrapper.vue'
+  import TagBox from '~/components/TagBox.vue'
 
   export default {
     components:{
       ArticleWrapper,
-      SectionWrapper
+      SectionWrapper,
+      TagBox
     },
     async asyncData({env}){
       const contents = await createClient().getEntries({
@@ -63,21 +63,6 @@
   margin 5px 0
   padding 5px 0
   box-sizing border-box
-  div
-    .post-small__date
-    .post-small__tag
-      height 12px
-      line-height 12px
-      font-size 12px
-      padding 0 12px
-      margin-right 2px
-      display inline-block
-      font-weight bold
-    .post-small__date
-      border 1px solid #ccc
-    .post-small__tag
-      color #fff
-      background-color #FF85AD
   a
     display inline-block
     color #09c

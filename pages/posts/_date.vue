@@ -1,10 +1,11 @@
 <template lang="pug">
   article-wrapper
     section-wrapper
-      h1 {{getNearbyPosts().curr.title}}
+      tag-box(:date='getNearbyPosts().curr.date' :tags='getNearbyPosts().curr.tags')
       div {{getNearbyPosts().curr.date}}
       div(v-for='tag in getNearbyPosts().curr.tags')
         nuxt-link(:to='{name:"tags-tagname", params:{tagname: tag}}') {{tag}}
+      h1 {{getNearbyPosts().curr.title}}
       div(v-html='$md.render(getNearbyPosts().curr.body)')
       nuxt-link(v-if='getNearbyPosts().prev' :to='{name:"posts-date", params:{date: getNearbyPosts().prev.date}}')
         div {{getNearbyPosts().prev.title}}
@@ -17,11 +18,13 @@
   import {createClient} from '~/plugins/contentful.js'
   import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SectionWrapper from '~/components/SectionWrapper.vue'
+  import TagBox from '~/components/TagBox.vue'
 
   export default {
     components:{
       ArticleWrapper,
-      SectionWrapper
+      SectionWrapper,
+      TagBox
     },
     async asyncData({env}){
       const contents = await createClient().getEntries({
