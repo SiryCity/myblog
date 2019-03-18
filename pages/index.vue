@@ -1,6 +1,6 @@
 <template lang="pug">
-  div.main
-    div.section__wrapper__left
+  article-wrapper
+    div.section__area__left
       section-wrapper(title='BLOG')
         div.post-small(
           v-for='(post, i) in posts',
@@ -11,8 +11,11 @@
             p.post-small__date {{String(post.date).replace(/-/g, '/')}}
             p.post-small__tag(v-for='(tag, j) in post.tags', :key='`post-small${i}-${j}`') {{tag}}
           nuxt-link(:to='{name:"posts-date", params:{date: post.date}}') {{post.title}}
-    div.section__wrapper__right
+    div.section__area__right
       section-wrapper(title='AUTHOR')
+        div.author
+          img(src='~/assets/icon.svg')
+          div test
       section-wrapper(title='BLOG')
         div.post-large(
           v-for='(post, i) in posts',
@@ -28,10 +31,12 @@
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
+  import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SectionWrapper from '~/components/SectionWrapper.vue'
 
   export default {
     components:{
+      ArticleWrapper,
       SectionWrapper
     },
     async asyncData({env}){
@@ -45,22 +50,14 @@
 </script>
 
 <style lang="stylus" scoped>
-.main
-  width 100%
-  height 100%
-  display flex
-  flex-wrap wrap
-  justify-content space-around
-  align-items flex-start
 
-.section__wrapper__left
-  width 645px
-  margin 15px 0
+.section__area__left
+  width calc(1020px - 15px * 3 - 330px)
+  max-width 100vw
 
-.section__wrapper__right
-  width 335px
-  margin 15px 0
-
+.section__area__right
+  width 330px
+  max-width 100vw
 
 .post-small
   margin 5px 0
@@ -88,6 +85,27 @@
     margin 4px 0 0 4px
     &:hover
       text-decoration underline
+
+.author
+  width 143px
+  height 143px
+  border 1px solid #cccccc
+  box-sizing border-box
+  display flex
+  flex-direction column
+  align-items center
+  justify-content space-between
+  img
+    width 110px
+    height 110px
+    margin-top 4px
+  div
+    width 100%
+    height 23px
+    line-height 23px
+    color white
+    background-color #0473C2
+    text-align center
 
 .post-large
   margin 5px 0

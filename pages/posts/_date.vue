@@ -1,23 +1,26 @@
 <template lang="pug">
-  section-wrapper
-    h1 {{getNearbyPosts().curr.title}}
-    div {{getNearbyPosts().curr.date}}
-    div(v-for='tag in getNearbyPosts().curr.tags')
-      nuxt-link(:to='{name:"tags-tagname", params:{tagname: tag}}') {{tag}}
-    div(v-html='$md.render(getNearbyPosts().curr.body)')
-    nuxt-link(v-if='getNearbyPosts().prev' :to='{name:"posts-date", params:{date: getNearbyPosts().prev.date}}')
-      div {{getNearbyPosts().prev.title}}
-    nuxt-link(v-if='getNearbyPosts().next' :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}')
-      div {{getNearbyPosts().next.title}}
-    nuxt-link(to='../') home
+  article-wrapper
+    section-wrapper
+      h1 {{getNearbyPosts().curr.title}}
+      div {{getNearbyPosts().curr.date}}
+      div(v-for='tag in getNearbyPosts().curr.tags')
+        nuxt-link(:to='{name:"tags-tagname", params:{tagname: tag}}') {{tag}}
+      div(v-html='$md.render(getNearbyPosts().curr.body)')
+      nuxt-link(v-if='getNearbyPosts().prev' :to='{name:"posts-date", params:{date: getNearbyPosts().prev.date}}')
+        div {{getNearbyPosts().prev.title}}
+      nuxt-link(v-if='getNearbyPosts().next' :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}')
+        div {{getNearbyPosts().next.title}}
+      nuxt-link(to='../') home
 </template>
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
+  import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SectionWrapper from '~/components/SectionWrapper.vue'
 
   export default {
     components:{
+      ArticleWrapper,
       SectionWrapper
     },
     async asyncData({env}){
