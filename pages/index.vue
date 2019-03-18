@@ -1,43 +1,28 @@
 <template lang="pug">
   article-wrapper
     div.section__area__left
-      section-wrapper(title='BLOG')
-        div.post-small(
-          v-for='(post, i) in posts',
-          :key='`post-small${i}`'
-          :class='{"post--notfirst": i}'
-        )
-          tag-box(:date='post.date' :tags='post.tags')
-          nuxt-link(:to='{name:"posts-date", params:{date: post.date}}') {{post.title}}
+      small-posts(:posts='posts')
     div.section__area__right
       section-wrapper(title='AUTHOR')
         div.author
           img(src='~/assets/icon.svg')
           div test
-      section-wrapper(title='BLOG')
-        div.post-large(
-          v-for='(post, i) in posts',
-          :key='`post-large${i}`',
-          :class='{"post--notfirst": i}'
-        )
-          img(src='~/assets/icon.svg')
-          nuxt-link(:to='{name:"posts-date", params:{date: post.date}}')
-            p.post-large__tag {{post.tags[0]}}
-            p.post-large__date {{post.date.replace(/-/g, '/')}}
-            p.post-large__title {{post.title}}
+      large-posts(:posts='posts')
 </template>
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
   import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SectionWrapper from '~/components/SectionWrapper.vue'
-  import TagBox from '~/components/TagBox.vue'
+  import SmallPosts from '~/components/SmallPosts.vue'
+  import LargePosts from '~/components/LargePosts.vue'
 
   export default {
     components:{
       ArticleWrapper,
       SectionWrapper,
-      TagBox
+      SmallPosts,
+      LargePosts,
     },
     async asyncData({env}){
       const contents = await createClient().getEntries({
@@ -59,18 +44,6 @@
   width 330px
   max-width 100vw
 
-.post-small
-  margin 5px 0
-  padding 5px 0
-  box-sizing border-box
-  a
-    display inline-block
-    color #09c
-    text-decoration none
-    margin 4px 0 0 4px
-    &:hover
-      text-decoration underline
-
 .author
   width 143px
   height 143px
@@ -91,33 +64,5 @@
     color white
     background-color #0473C2
     text-align center
-
-.post-large
-  margin 5px 0
-  padding 5px 0
-  box-sizing border-box
-  display flex
-  img
-    width 60px
-    height 60px
-    border 1px solid #cccccc
-    box-sizing border-box
-  a
-    width calc(100% - 64px)
-    height 60px
-    display block
-    padding-left 4px
-    color #09c
-    text-decoration none
-    &:hover
-      background-color #D9F0F7
-    .post-large__tag
-      color #173759
-    .post-large__date
-      font-size 12px
-      color #333333
-
-.post--notfirst
-  border-top 1px dotted #cccccc
 
 </style>

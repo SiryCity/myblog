@@ -1,6 +1,6 @@
 <template lang="pug">
   section.section
-    div.title(v-if='title') {{title}}
+    div.section__title(v-if='title') {{title}}
     slot
 </template>
 
@@ -19,7 +19,7 @@ export default {
   box-shadow 1px 1px 2px rgba(128,128,128,0.5)
   overflow scroll
 
-.title
+.section__title
   color #0475C2
   display inline-block
   font-size 22px

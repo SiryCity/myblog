@@ -2,15 +2,12 @@
   article-wrapper
     section-wrapper
       tag-box(:date='getNearbyPosts().curr.date' :tags='getNearbyPosts().curr.tags')
-      div {{getNearbyPosts().curr.date}}
-      div(v-for='tag in getNearbyPosts().curr.tags')
-        nuxt-link(:to='{name:"tags-tagname", params:{tagname: tag}}') {{tag}}
-      h1 {{getNearbyPosts().curr.title}}
-      div(v-html='$md.render(getNearbyPosts().curr.body)')
+      h1.posts__title {{getNearbyPosts().curr.title}}
+      div.posts__body(v-html='$md.render(getNearbyPosts().curr.body)')
       nuxt-link(v-if='getNearbyPosts().prev' :to='{name:"posts-date", params:{date: getNearbyPosts().prev.date}}')
-        div {{getNearbyPosts().prev.title}}
+        div {{getNearbyPosts().prev.posts__title}}
       nuxt-link(v-if='getNearbyPosts().next' :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}')
-        div {{getNearbyPosts().next.title}}
+        div {{getNearbyPosts().next.posts__title}}
       nuxt-link(to='../') home
 </template>
 
@@ -51,3 +48,16 @@
 
   }
 </script>
+
+<style lang="stylus" scoped>
+.posts__title
+  font-size 20px
+  padding 15px 0
+  margin-bottom 15px
+  color #18375A
+  border-bottom 1px solid #ccc
+
+.posts__body
+  color #555
+
+</style>

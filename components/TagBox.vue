@@ -1,8 +1,20 @@
 <template lang="pug">
   div
     p.date {{date.replace(/-/g, '/')}}
-    p.tag(v-for='(tag, i) in tags' :key='`tagbox-${i}`') {{tag}}
+    nuxt-link.tag(
+      v-for='(tag, i) in tags'
+      :key='`tagbox-${i}`'
+      :to='{name:"tags-tagname", params:{tagname: tag}}'
+    ) {{tag}}
 </template>
+
+
+<script>
+export default {
+  props: ['date', 'tags']
+}
+</script>
+
 
 <style lang="stylus" scoped>
 .date
@@ -19,10 +31,5 @@
 .tag
   color #fff
   background-color #FF85AD
+  text-decoration none
 </style>
-
-<script>
-export default {
-  props: ['date', 'tags']
-}
-</script>
