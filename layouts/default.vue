@@ -1,7 +1,9 @@
 <template lang="pug">
   div#background
     div#root
-      header: h1 JavaScriptに関するお知らせ
+      header
+        nuxt-link(to='./')
+          h1 JavaScriptに関するお知らせ
       nav
         nuxt-link(to='./') HOME
         nuxt-link(to='./') aaa
@@ -44,15 +46,18 @@ html
       height 110px
       box-shadow 0px 9px 3px -3px rgba(128,128,128,0.5)
       background linear-gradient(#0073c2, #02609F)
-      display flex
-      justify-content center
-      align-items center
-      color white
-      font-weight normal
       order 10
-      h1
-        font-size 22px
-        font-weight normal
+      a
+        width 100%
+        height 100%
+        display flex
+        justify-content center
+        align-items center
+        text-decoration none
+        h1
+          font-size 22px
+          font-weight normal
+          color white
 
     nav
       width 100%

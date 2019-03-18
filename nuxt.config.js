@@ -1,6 +1,34 @@
 const config = require('./.contentful.json')
+import {createClient} from './plugins/contentful.js'
+const contentful = require('contentful')
 
 module.exports = {
+  generate: {
+    async routes(){
+      const contents = await contentful.createClient({
+        space: config.CTF_SPACE_ID,
+        accessToken: config.CTF_CDA_ACCESS_TOKEN
+      }).getEntries({
+        'content_type': config.CTF_BLOG_POST_TYPE_ID,
+      })
+
+      const posts = contents.items.map(entry => 
+        ({
+          route: `/posts/${entry.fields.date}`,
+          payload: entry
+        })
+      )
+      
+      const tags = contents.items.map(entry => 
+        ({
+          route: `/tags/${entry.fields.tags[0]}`,
+          payload: entry
+        })
+      )
+
+      return [... posts, ... tags]
+    }
+  },
   css: [
     { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' }
   ],
@@ -17,11 +45,15 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'myblog',
+    title: 'JavaScriptに関するお知らせ',
+    titleTemplate: '%s | JavaScriptに関するお知らせ',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
+      { name: "robots", content: "noindex" },
+      { name: "robots", content: "nofollow" },
+      { name: "robots", content: "noachieve" },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

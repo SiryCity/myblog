@@ -1,5 +1,6 @@
 <template lang="pug">
   article-wrapper
+    bread-crumbs
     div.section__area__left
       small-posts(:posts='posts')
     div.section__area__right
@@ -12,19 +13,27 @@
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
+  import BreadCrumbs from '~/components/BreadCrumbs.vue'
   import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SectionWrapper from '~/components/SectionWrapper.vue'
   import SmallPosts from '~/components/SmallPosts.vue'
   import LargePosts from '~/components/LargePosts.vue'
 
   export default {
+    head(){
+      return {
+        titleTemplate: '',
+      }
+    },
     components:{
+      BreadCrumbs,
       ArticleWrapper,
       SectionWrapper,
       SmallPosts,
       LargePosts,
     },
-    async asyncData({env}){
+    async asyncData({env, payload}){
+      if(payload) return payload
       const contents = await createClient().getEntries({
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
         order: '-fields.date',

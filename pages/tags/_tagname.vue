@@ -10,11 +10,17 @@
   import SmallPosts from '~/components/SmallPosts.vue'
 
   export default {
+    head(){
+      return {
+        title: `タグ: ${this.$route.params.tagname}`,
+      }
+    },
     components:{
       ArticleWrapper,
       SmallPosts,
     },
-    async asyncData({env}){
+    async asyncData({env, payload}){
+      if(payload) return payload
       const contents = await createClient().getEntries({
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
         order: '-fields.date',

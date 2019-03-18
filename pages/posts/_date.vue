@@ -4,11 +4,18 @@
       tag-box(:date='getNearbyPosts().curr.date' :tags='getNearbyPosts().curr.tags')
       h1.posts__title {{getNearbyPosts().curr.title}}
       div.posts__body(v-html='$md.render(getNearbyPosts().curr.body)')
-      nuxt-link(v-if='getNearbyPosts().prev' :to='{name:"posts-date", params:{date: getNearbyPosts().prev.date}}')
-        div {{getNearbyPosts().prev.posts__title}}
-      nuxt-link(v-if='getNearbyPosts().next' :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}')
-        div {{getNearbyPosts().next.posts__title}}
-      nuxt-link(to='../') home
+      div.posts__prev-home-next
+        nuxt-link(
+          v-if='getNearbyPosts().prev'
+          :to='{name:"posts-date",params:{date: getNearbyPosts().prev.date}}'
+        ) {{`< ${getNearbyPosts().prev.title}`}}
+        div(v-else)
+        nuxt-link(to='../') home
+        nuxt-link(
+          v-if='getNearbyPosts().next'
+          :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}'
+        ) {{`${getNearbyPosts().next.title} >`}}
+        div(v-else)
 </template>
 
 <script>
@@ -18,12 +25,18 @@
   import TagBox from '~/components/TagBox.vue'
 
   export default {
+    head(){
+      return {
+        title: this.getNearbyPosts().curr.title,
+      }
+    },
     components:{
       ArticleWrapper,
       SectionWrapper,
       TagBox
     },
-    async asyncData({env}){
+    async asyncData({env, payload}){
+      if(payload) return payload
       const contents = await createClient().getEntries({
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
         order: '-fields.date',
@@ -59,5 +72,20 @@
 
 .posts__body
   color #555
+
+.posts__prev-home-next
+  display flex
+  width 100%
+  height 20px
+  display flex
+  justify-content space-between
+  margin-top 15px
+  a
+    display block
+    color #18375A
+    text-decoration none
+  div
+    width 30px
+
 
 </style>
