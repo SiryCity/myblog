@@ -1,5 +1,5 @@
 const config = require('./.contentful.json')
-import {createClient} from './plugins/contentful.js'
+//import {createClient} from './plugins/contentful.js'
 const contentful = require('contentful')
 
 module.exports = {
