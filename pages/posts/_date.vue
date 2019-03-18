@@ -27,7 +27,7 @@
   export default {
     head(){
       return {
-        title: this.getNearbyPosts().curr.title,
+        title: `${this.getNearbyPosts().curr.title} | JavaScriptに関するお知らせ`,
       }
     },
     components:{
@@ -72,6 +72,17 @@
 
 .posts__body
   color #555
+  line-height 1.8
+  >>> a
+    color #09c
+    text-decoration none
+    &:hover
+      text-decoration underline
+  >>> h2
+    font-size 20px
+    margin-top 30px
+  >>> pre
+    margin 30px 0
 
 .posts__prev-home-next
   display flex

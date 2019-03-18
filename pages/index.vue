@@ -22,7 +22,7 @@
   export default {
     head(){
       return {
-        titleTemplate: '',
+        title: 'JavaScriptに関するお知らせ',
       }
     },
     components:{

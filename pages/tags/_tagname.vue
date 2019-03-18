@@ -12,7 +12,7 @@
   export default {
     head(){
       return {
-        title: `タグ: ${this.$route.params.tagname}`,
+        title: `タグ: ${this.$route.params.tagname} | JavaScriptに関するお知らせ`,
       }
     },
     components:{
