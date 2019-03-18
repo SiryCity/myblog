@@ -1,6 +1,6 @@
 <template lang="pug">
   section.section
-    div.title {{title}}
+    span.title {{title}}
     slot
 </template>
 
@@ -24,7 +24,7 @@ export default {
   display inline-block
   font-size 22px
   height 41px
-  border-bottom 3px solid #0475c2
+  border-bottom 2.5px solid #0475c2
 
 .title:first-letter
   font-size 40px

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  section-wrapper
     h1 {{getNearbyPosts().curr.title}}
     div {{getNearbyPosts().curr.date}}
     div(v-for='tag in getNearbyPosts().curr.tags')
@@ -14,9 +14,12 @@
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
+  import SectionWrapper from '~/components/SectionWrapper.vue'
 
   export default {
-
+    components:{
+      SectionWrapper
+    },
     async asyncData({env}){
       const contents = await createClient().getEntries({
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
