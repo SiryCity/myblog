@@ -1,4 +1,6 @@
-const config = require('./.contentful.json') || null
+const config = (process.env.NODE_ENV === 'development')
+? require('./.contentful.json')
+: process.env
 //import {createClient} from './plugins/contentful.js'
 const contentful = require('contentful')
 
@@ -19,7 +21,7 @@ module.exports = {
         })
       )
       
-      const tags = contents.items.map(entry =>
+      const tags = contents.items.map(entry => 
         ({
           route: `/tags/${entry.fields.tags[0]}`,
           payload: entry
