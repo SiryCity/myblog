@@ -33,8 +33,8 @@ module.exports = {
     { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' }
   ],
   modules: [
-    '@nuxtjs/dotenv',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    '@nuxtjs/dotenv'
   ],
   markdownit: {
     injected: true,
