@@ -1,11 +1,11 @@
 <template lang="pug">
   article-wrapper
     bread-crumbs
-    div.section__area__left(:class='{"section__area--sp": $store.getters["device/isSP"]}')
+    section-area(:width='$store.getters["device/isSP"] ? "100vw" : "calc(1020px - 15px * 3 - 330px)"')
       small-posts(:posts='posts' heading='NEWS' prefix='ブログ「' postfix='」 が投稿されました。')
-    div.section__area__right(:class='{"section__area--sp": $store.getters["device/isSP"]}')
+    section-area(:width='$store.getters["device/isSP"] ? "100vw" : "330px"')
       section-wrapper(heading='Author')
-        div.author
+        nuxt-link(to='./').author
           img(src='~/assets/icon.svg')
           div Daidoooo Taroo
       large-posts(:posts='posts' heading='BLOG')
@@ -16,8 +16,11 @@
   import BreadCrumbs from '~/components/BreadCrumbs.vue'
   import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SectionWrapper from '~/components/SectionWrapper.vue'
+  import SectionArea from '~/components/SectionArea.vue'
+  
   import SmallPosts from '~/components/SmallPosts.vue'
   import LargePosts from '~/components/LargePosts.vue'
+
 
   export default {
     head(){
@@ -29,6 +32,7 @@
       BreadCrumbs,
       ArticleWrapper,
       SectionWrapper,
+      SectionArea,
       SmallPosts,
       LargePosts,
     },
@@ -45,13 +49,6 @@
 
 <style lang="stylus" scoped>
 
-.section__area__left
-  width calc(1020px - 15px * 3 - 330px)
-.section__area__right
-  width 330px
-.section__area--sp
-  width 100vw
-
 .author
   width 143px
   height 143px
@@ -61,6 +58,7 @@
   flex-direction column
   align-items center
   justify-content space-between
+  text-decoration none
   img
     width 110px
     height 110px

@@ -1,12 +1,18 @@
 <template lang="pug">
   section.section(:class='[$store.getters["device/isSP"] ? "section--SP" : "section--PC"]')
-    div.section__heading(v-if='heading') {{heading}}
+    div.section__heading__wrapper
+      div.section__heading(v-if='heading') {{heading}}
+      //s-n-s-box(v-if='SNS')
     slot
 </template>
 
 <script>
+import SNSBox from '~/components/SNSBox.vue'
 export default {
-  props: ['heading']
+  components:{
+    SNSBox
+  },
+  props: ['heading', 'SNS']
 }
 </script>
 
@@ -22,6 +28,10 @@ export default {
 .section--PC
   margin-bottom 15px
 
+.section__heading__wrapper
+  display flex
+  justify-content space-between
+  align-items flex-start
 .section__heading
   color #0475C2
   display inline-block
