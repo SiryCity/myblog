@@ -1,6 +1,6 @@
 <template lang="pug">
   article-wrapper
-    small-posts(:posts='posts')
+    small-posts(:posts='posts' :heading='this.$route.params.tagname')
         nuxt-link(to='../') home
 </template>
 

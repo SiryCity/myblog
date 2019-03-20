@@ -1,14 +1,14 @@
 <template lang="pug">
   article-wrapper
     bread-crumbs
-    div.section__area__left
-      small-posts(:posts='posts')
-    div.section__area__right
-      section-wrapper(title='AUTHOR')
+    div.section__area__left(:class='{"section__area--sp": $store.getters["device/isSP"]}')
+      small-posts(:posts='posts' heading='NEWS' prefix='ブログ「' postfix='」 が投稿されました。')
+    div.section__area__right(:class='{"section__area--sp": $store.getters["device/isSP"]}')
+      section-wrapper(heading='Author')
         div.author
           img(src='~/assets/icon.svg')
-          div test
-      large-posts(:posts='posts')
+          div Daidoooo Taroo
+      large-posts(:posts='posts' heading='BLOG')
 </template>
 
 <script>
@@ -47,11 +47,10 @@
 
 .section__area__left
   width calc(1020px - 15px * 3 - 330px)
-  max-width 100vw
-
 .section__area__right
   width 330px
-  max-width 100vw
+.section__area--sp
+  width 100vw
 
 .author
   width 143px

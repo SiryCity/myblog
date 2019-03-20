@@ -1,25 +1,28 @@
 <template lang="pug">
-  section.section
-    div.section__title(v-if='title') {{title}}
+  section.section(:class='[$store.getters["device/isSP"] ? "section--SP" : "section--PC"]')
+    div.section__heading(v-if='heading') {{heading}}
     slot
 </template>
 
 <script>
 export default {
-  props: ['title']
+  props: ['heading']
 }
 </script>
 
 <style lang="stylus" scoped>
 .section
   width 100%
-  margin-bottom 15px
   padding 15px
   background-color #fefefe
   box-shadow 1px 1px 2px rgba(128,128,128,0.5)
   overflow scroll
+.section--SP
+  border-top 1px dotted #cccccc
+.section--PC
+  margin-bottom 15px
 
-.section__title
+.section__heading
   color #0475C2
   display inline-block
   font-size 22px

@@ -5,7 +5,7 @@
 
 <style lang="stylus" scoped>
 .breadcrumb__wrapper
-  width 990px
+  width 100%
   height 125px
   background-color #fff
   box-shadow 1px 1px 2px rgba(128,128,128,0.5)
@@ -13,7 +13,7 @@
   justify-content center
   align-items center
   .breadcrumb
-    width 960px
+    width calc(100% - 30px)
     height 95px
     background-color #0475C2
     border-radius 3px

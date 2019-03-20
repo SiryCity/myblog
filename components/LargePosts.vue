@@ -1,5 +1,5 @@
 <template lang="pug">
-section-wrapper(title='BLOG')
+section-wrapper(:heading='heading')
   nuxt-link.post-large(
     :to='{name:"posts-date", params:{date: post.date}}'
     v-for='(post, i) in posts',
@@ -16,7 +16,7 @@ section-wrapper(title='BLOG')
 <script>
 import SectionWrapper from '~/components/SectionWrapper.vue'
 export default {
-  props: ['posts'],
+  props: ['posts', 'heading'],
   components:{
     SectionWrapper
   },

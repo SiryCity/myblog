@@ -1,5 +1,5 @@
 <template lang="pug">
-  article.article: slot
+  article.article(:class='{"article--PC": !$store.getters["device/isSP"]}'): slot
 </template>
 
 <style lang="stylus" scoped>
@@ -10,5 +10,6 @@
   display flex
   flex-wrap wrap
   justify-content space-between
+.article--PC
   padding 15px
 </style>

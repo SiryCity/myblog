@@ -1,14 +1,16 @@
 <template lang="pug">
   div#background
-    div#root
+    div#root(:class='{"root--pc": !$store.getters["device/isSP"]}')
       header
         nuxt-link(to='./')
           h1 JavaScriptに関するお知らせ
+          div JavaScriptやPythonの技術ブログ
       nav
         nuxt-link(to='./') HOME
         nuxt-link(to='./') aaa
-      main: nuxt
-      footer: div &copy; 2019 JavaScriptに関するお知らせ
+      main(:class='[$store.getters["device/isSP"]? "main--sp" : "main--pc"]'): nuxt
+      footer
+        div &copy; 2019 JavaScriptに関するお知らせ
 </template>
 
 <style lang="stylus">
@@ -30,17 +32,14 @@ html
   display flex
   justify-content center
   background-color #f6f6f6
-
   #root
     width 100%
-    max-width 1100px
     display flex
     flex-direction column
     align-items center
     justify-content flex-start
     background-color #fefefe
     box-shadow 1px 1px 4px 1px rgba(0,0,0,0.1)
-
     header
       width 100vw
       height 110px
@@ -51,6 +50,7 @@ html
         width 100%
         height 100%
         display flex
+        flex-direction column
         justify-content center
         align-items center
         text-decoration none
@@ -58,12 +58,13 @@ html
           font-size 22px
           font-weight normal
           color white
-
+        div
+          color white
     nav
       width 100%
       height 14px
       line-height 14px
-      margin-top 21px
+      margin 21px 0 15px
       display flex
       justify-content center
       font-size 14px
@@ -76,23 +77,29 @@ html
         margin-left 14px
         &:nth-of-type(n+2)
           border-left 1px solid #0475C2
-          
     main
-      width calc(100% - 80px)
-      margin 15px 0
       background-color #f6f6f6
-      box-shadow 1px 1px 2px rgba(128,128,128,0.5) inset 
-      order 30
-
+      box-shadow 1px 1px 2px rgba(128,128,128,0.5) inset
+      overflow hidden
     footer
       width 100vw
       height 100px
       background-color #0073c2
       display flex
+      flex-direction column
       justify-content center
       align-items center
       color white
       order 40
 
+.root--pc
+  max-width 1100px
+.main--sp
+  width 100vw
+  order 15
+.main--pc
+  width calc(100% - 80px)
+  order 30
+  margin 0 0 15px
 </style>
 

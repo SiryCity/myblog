@@ -1,19 +1,19 @@
 <template lang="pug">
-section-wrapper(title='BLOG')
+section-wrapper(:heading='heading')
   div.post-small(
     v-for='(post, i) in posts',
     :key='`post-small${i}`'
     :class='{"post--notfirst": i}'
   )
     tag-box(:date='post.date' :tags='post.tags')
-    nuxt-link(:to='{name:"posts-date", params:{date: post.date}}') {{post.title}}
+    nuxt-link(:to='{name:"posts-date", params:{date: post.date}}') {{prefix}}{{post.title}}{{postfix}}
 </template>
 
 <script>
 import SectionWrapper from '~/components/SectionWrapper.vue'
 import TagBox from '~/components/TagBox.vue'
 export default {
-  props: ['posts'],
+  props: ['posts', 'heading', 'prefix', 'postfix'],
   components:{
     SectionWrapper,
     TagBox
@@ -25,6 +25,7 @@ export default {
 .post-small
   margin 5px 0
   padding 5px 0
+  font-size 14px
   box-sizing border-box
   a
     display inline-block
