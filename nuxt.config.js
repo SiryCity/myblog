@@ -48,14 +48,17 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'JavaScriptに関するお知らせ',
+    titleTemplate: '%s | JavaScriptに関するお知らせ',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
-      { name: "robots", content: "noindex" },
-      { name: "robots", content: "nofollow" },
-      { name: "robots", content: "noachieve" },
+      { hid: 'description', name: 'description', content: 'JavaScript、Python等の技術ブログ。' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'JavaScriptに関するお知らせ' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: 'https://rm-js.com' },
+      { hid: 'og:title', property: 'og:title', content: 'JavaScriptに関するお知らせ' },
+      { hid: 'og:description', property: 'og:description', content: 'JavaScript、Python等の技術ブログ。' },
+      { hid: 'og:image', property: 'og:image', content: '/icon.svg'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -83,12 +86,13 @@ module.exports = {
       }
     }
   },
-  mode: 'spa',
+  mode: 'universal',
   env: {
     CTF_SPACE_ID: config.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
     CTF_PERSON_ID: config.CTF_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID
+    CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID,
+    FORMS_API: process.env.FORMS_API
   }
 }
 

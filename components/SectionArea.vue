@@ -1,6 +1,6 @@
 <template lang="pug">
   div(
-    :class='{"section__area--sp": $store.getters["device/isSP"]}'
+    :class='{"section__area--sp": $store.state.device.isSP}'
     :style='{"width": width}'
   ): slot
 </template>

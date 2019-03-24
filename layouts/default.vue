@@ -1,17 +1,27 @@
 <template lang="pug">
-  div#background
-    div#root(:class='{"root--pc": !$store.getters["device/isSP"]}')
+  div.background(:class='{"background--finished": $store.state.device.isFinished}')
+    div#root(:class='{"root--pc": !$store.state.device.isSP}')
       header
         nuxt-link(to='./')
           h1 JavaScriptに関するお知らせ
           div JavaScriptやPythonの技術ブログ
       nav
         nuxt-link(to='./') HOME
-        nuxt-link(to='./') aaa
-      main(:class='[$store.getters["device/isSP"]? "main--sp" : "main--pc"]'): nuxt
+        nuxt-link(to='./contact') CONTACT
+      main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]'): nuxt
       footer
         div &copy; 2019 JavaScriptに関するお知らせ
 </template>
+
+<script> 
+export default {
+  mounted(){
+    if(process.client){
+      this.$store.commit('device/identifyDeviceType')
+    }
+  }
+}
+</script>
 
 <style lang="stylus">
 html 
@@ -27,9 +37,11 @@ html
   box-sizing border-box
   margin 0
 
-#background
+.background--finished
+  display flex !important
+.background
   width 100%
-  display flex
+  display none
   justify-content center
   background-color #f6f6f6
   #root

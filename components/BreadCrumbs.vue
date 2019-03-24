@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.breadcrumb__wrapper
+  div.breadcrumb__wrapper(:class='{"breadcrumb__wrapper--PC": !$store.state.device.isSP}')
     div.breadcrumb
 </template>
 
@@ -17,4 +17,7 @@
     height 95px
     background-color #0475C2
     border-radius 3px
+
+.breadcrumb__wrapper--PC
+  margin-bottom 15px
 </style>

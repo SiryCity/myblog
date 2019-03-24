@@ -1,20 +1,22 @@
 <template lang="pug">
   article-wrapper
-    small-posts(:posts='posts' :heading='this.$route.params.tagname')
-        nuxt-link(to='../') home
+    bread-crumbs
+      small-posts(:posts='posts' heading='BLOG')
 </template>
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
+  import BreadCrumbs from '~/components/BreadCrumbs.vue'
   import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SmallPosts from '~/components/SmallPosts.vue'
 
   export default {
     head: () =>
       ({
-        title: `タグ: ${this.$route.params.tagname}`,
+        title: '全記事一覧',
       }),
     components:{
+      BreadCrumbs,
       ArticleWrapper,
       SmallPosts,
     },
@@ -25,16 +27,7 @@
         order: '-fields.date',
       })
       return {posts: contents.items.map(item => item.fields)}
-    },
-
-    methods:{
-      getPostsIncludingTag(){
-        return this.posts.filter(post => post.tags.includes(this.$route.params.tagname))
-      }
     }
   }
 </script>
 
-<style lang="stylus" scoped>
-
-</style>

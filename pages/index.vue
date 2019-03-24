@@ -1,9 +1,9 @@
 <template lang="pug">
   article-wrapper
     bread-crumbs
-    section-area(:width='$store.getters["device/isSP"] ? "100vw" : "calc(1020px - 15px * 3 - 330px)"')
+    section-area(:width='$store.state.device.isSP ? "100vw" : "calc(1020px - 15px * 3 - 330px)"')
       small-posts(:posts='posts' heading='NEWS' prefix='ブログ「' postfix='」 が投稿されました。')
-    section-area(:width='$store.getters["device/isSP"] ? "100vw" : "330px"')
+    section-area(:width='$store.state.device.isSP ? "100vw" : "330px"')
       section-wrapper(heading='Author')
         nuxt-link(to='./').author
           img(src='~/assets/icon.svg')
@@ -23,11 +23,11 @@
 
 
   export default {
-    head(){
-      return {
+    head: () =>
+      ({
         title: 'JavaScriptに関するお知らせ',
-      }
-    },
+        titleTemplate: null,
+      }),
     components:{
       BreadCrumbs,
       ArticleWrapper,
