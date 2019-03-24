@@ -56,10 +56,13 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'JavaScript、Python等の技術ブログ。' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'JavaScriptに関するお知らせ' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:url', property: 'og:url', content: 'https://rm-js.com' },
+      { hid: 'og:url', property: 'og:url', content: 'https://notice-js.com' },
       { hid: 'og:title', property: 'og:title', content: 'JavaScriptに関するお知らせ' },
       { hid: 'og:description', property: 'og:description', content: 'JavaScript、Python等の技術ブログ。' },
-      { hid: 'og:image', property: 'og:image', content: '/icon.svg'}
+      { hid: 'og:image', property: 'og:image', content: '/icon.svg'},
+      { name: "robots", content: "noindex" },
+      { name: "robots", content: "nofollow" },
+      { name: "robots", content: "noachieve" },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
