@@ -1,12 +1,11 @@
 <template lang="pug">
   article-wrapper
-    bread-crumbs
-      small-posts(:posts='posts' heading='BLOG')
+    small-posts(:posts='posts' heading='BLOG')
+        nuxt-link(to='../') home
 </template>
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
-  import BreadCrumbs from '~/components/BreadCrumbs.vue'
   import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SmallPosts from '~/components/SmallPosts.vue'
 
@@ -16,7 +15,6 @@
         title: '全記事一覧',
       }),
     components:{
-      BreadCrumbs,
       ArticleWrapper,
       SmallPosts,
     },
@@ -27,7 +25,7 @@
         order: '-fields.date',
       })
       return {posts: contents.items.map(item => item.fields)}
-    }
+    },
+
   }
 </script>
-

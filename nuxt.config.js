@@ -5,6 +5,7 @@ const config = (process.env.NODE_ENV === 'development')
 const contentful = require('contentful')
 
 module.exports = {
+  css: ['assets/main.css'],
   generate: {
     async routes(){
       const contents = await contentful.createClient({

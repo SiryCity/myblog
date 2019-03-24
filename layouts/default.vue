@@ -38,12 +38,17 @@ html
   margin 0
 
 .background--finished
-  display flex !important
+  visibility visible !important
+  opacity 1 !important
 .background
   width 100%
-  display none
+  visibility hidden
+  display flex
   justify-content center
   background-color #f6f6f6
+  transition-duration .5s
+  transition-property opacity visibility
+  opacity 0
   #root
     width 100%
     display flex

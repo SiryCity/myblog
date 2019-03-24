@@ -13,6 +13,10 @@
 <script>
 import ArticleWrapper from '~/components/ArticleWrapper.vue'
 export default {
+  head: () =>
+    ({
+      title: 'お問い合わせ',
+    }),
   components: {
     ArticleWrapper,
   },
