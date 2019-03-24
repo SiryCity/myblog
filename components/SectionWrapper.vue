@@ -37,8 +37,9 @@ export default {
   display inline-block
   font-size 22px
   height 41px
-  border-bottom 2.5px solid #0475c2
+  border-bottom 2.2px solid #0475c2
   margin-bottom 5px
+  filter blur(.5px)
   &:first-letter
     font-size 40px
 </style>

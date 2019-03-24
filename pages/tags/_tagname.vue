@@ -10,10 +10,11 @@
   import SmallPosts from '~/components/SmallPosts.vue'
 
   export default {
-    head: () =>
-      ({
+    head(){ 
+      return {
         title: `タグ: ${this.$route.params.tagname}`,
-      }),
+      }
+    },
     components:{
       ArticleWrapper,
       SmallPosts,

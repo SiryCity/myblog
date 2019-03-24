@@ -25,10 +25,11 @@
   import TagBox from '~/components/TagBox.vue'
 
   export default {
-    head: () => 
-      ({
+    head(){ 
+      return {
         title: this.getNearbyPosts().curr.title,
-      }),
+      }
+    },
     components:{
       ArticleWrapper,
       SectionWrapper,

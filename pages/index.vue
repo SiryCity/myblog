@@ -5,9 +5,9 @@
       small-posts(:posts='posts' heading='NEWS' prefix='ブログ「' postfix='」 が投稿されました。')
     section-area(:width='$store.state.device.isSP ? "100vw" : "330px"')
       section-wrapper(heading='Author')
-        nuxt-link(to='./').author
+        a.author(href='https://rm-js.com')
           img(src='~/assets/icon.svg')
-          div Daidoooo Taroo
+          div MIZUTANI Ryuto
       large-posts(:posts='posts' heading='BLOG')
 </template>
 
