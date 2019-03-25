@@ -60,9 +60,6 @@ module.exports = {
       { hid: 'og:title', property: 'og:title', content: 'JavaScriptに関するお知らせ' },
       { hid: 'og:description', property: 'og:description', content: 'JavaScript、Python等の技術ブログ。' },
       { hid: 'og:image', property: 'og:image', content: 'icon.svg'},
-      { name: "robots", content: "noindex" },
-      { name: "robots", content: "nofollow" },
-      { name: "robots", content: "noachieve" },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

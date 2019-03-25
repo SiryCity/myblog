@@ -7,7 +7,7 @@
           div JavaScriptやPythonの技術ブログ
       nav
         nuxt-link(to='https://notice-js.com') HOME
-        nuxt-link(to='https://notice-js.com') CONTACT
+        nuxt-link(to='https://notice-js.com/contact') CONTACT
       main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]'): nuxt
       footer
         div &copy; 2019 JavaScriptに関するお知らせ
