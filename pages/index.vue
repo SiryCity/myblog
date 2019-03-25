@@ -21,7 +21,6 @@
   import SmallPosts from '~/components/SmallPosts.vue'
   import LargePosts from '~/components/LargePosts.vue'
 
-
   export default {
     head: () =>
       ({

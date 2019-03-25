@@ -13,12 +13,11 @@
         div &copy; 2019 JavaScriptに関するお知らせ
 </template>
 
+
 <script> 
 export default {
   mounted(){
-    if(process.client){
-      this.$store.commit('device/identifyDeviceType')
-    }
+    if(process.client) this.$store.commit('device/identifyDeviceType')
   }
 }
 </script>

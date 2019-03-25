@@ -3,6 +3,7 @@
     section-wrapper
       tag-box(:date='getNearbyPosts().curr.date' :tags='getNearbyPosts().curr.tags')
       h1.posts__title {{getNearbyPosts().curr.title}}
+      s-n-s-box
       div.posts__body(v-html='$md.render(getNearbyPosts().curr.body)')
       div.posts__prev-home-next
         nuxt-link(
@@ -23,6 +24,7 @@
   import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SectionWrapper from '~/components/SectionWrapper.vue'
   import TagBox from '~/components/TagBox.vue'
+  import SNSBox from '~/components/SNSBox.vue'
 
   export default {
     head(){ 
@@ -33,7 +35,8 @@
     components:{
       ArticleWrapper,
       SectionWrapper,
-      TagBox
+      TagBox,
+      SNSBox
     },
     async asyncData({env, payload}){
       if(payload) return payload

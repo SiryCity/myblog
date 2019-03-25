@@ -2,17 +2,12 @@
   section.section(:class='[$store.state.device.isSP ? "section--SP" : "section--PC"]')
     div.section__heading__wrapper
       div.section__heading(v-if='heading') {{heading}}
-      //s-n-s-box(v-if='SNS')
     slot
 </template>
 
 <script>
-import SNSBox from '~/components/SNSBox.vue'
 export default {
-  components:{
-    SNSBox
-  },
-  props: ['heading', 'SNS']
+  props: ['heading']
 }
 </script>
 

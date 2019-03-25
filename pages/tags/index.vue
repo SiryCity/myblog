@@ -1,6 +1,6 @@
 <template lang="pug">
   article-wrapper
-    small-posts(:posts='posts' heading='BLOG')
+    small-posts(:posts='posts' heading='BLOG' :SNS='true')
         nuxt-link(to='../') home
 </template>
 

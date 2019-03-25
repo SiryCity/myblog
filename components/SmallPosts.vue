@@ -1,5 +1,5 @@
 <template lang="pug">
-section-wrapper(:heading='heading' :SNS='true')
+section-wrapper(:heading='heading')
   div.post-small(
     v-for='(post, i) in posts',
     :key='`post-small${i}`'
