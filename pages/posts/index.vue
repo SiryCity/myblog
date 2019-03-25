@@ -1,7 +1,7 @@
 <template lang="pug">
   article-wrapper
     small-posts(:posts='posts' heading='BLOG')
-        nuxt-link(to='../') home
+        nuxt-link(:to='{name: "index"}') home
 </template>
 
 <script>

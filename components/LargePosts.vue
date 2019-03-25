@@ -49,6 +49,8 @@ export default {
     .post-large__date
       font-size 12px
       color #333333
+    .post-large__title
+      font-size 14px
 
 .post--notfirst
   border-top 1px dotted #cccccc

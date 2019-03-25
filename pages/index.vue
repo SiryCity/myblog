@@ -67,6 +67,7 @@
     height 23px
     line-height 23px
     color white
+    font-size 14px
     background-color #0473C2
     text-align center
 

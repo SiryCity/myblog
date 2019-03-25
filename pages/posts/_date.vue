@@ -11,7 +11,7 @@
           :to='{name:"posts-date",params:{date: getNearbyPosts().prev.date}}'
         ) {{getNearbyPosts().prev.title.length < 10 ? `← ${getNearbyPosts().prev.title}` : `← ${getNearbyPosts().prev.title.substr(0,8)}...`}}
         div(v-else) {{Math.max('_'.repeat(getNearbyPosts().next.title.length + 2), 13)}}
-        nuxt-link(to='../') home
+        nuxt-link(:to='{name: "index"}') home
         nuxt-link(
           v-if='getNearbyPosts().next'
           :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}'

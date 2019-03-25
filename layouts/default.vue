@@ -2,12 +2,12 @@
   div.background(:class='{"background--finished": $store.state.device.isFinished}')
     div#root(:class='{"root--pc": !$store.state.device.isSP}')
       header
-        nuxt-link(to='https://notice-js.com')
+        nuxt-link(:to='{name: "index"}')
           h1 JavaScriptに関するお知らせ
           div JavaScriptやPythonの技術ブログ
       nav
-        nuxt-link(to='https://notice-js.com') HOME
-        nuxt-link(to='https://notice-js.com/contact') CONTACT
+        nuxt-link(:to='{name: "index"}') HOME
+        nuxt-link(:to='{name: "contact"}') CONTACT
       main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]'): nuxt
       footer
         div &copy; 2019 JavaScriptに関するお知らせ
