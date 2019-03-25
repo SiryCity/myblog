@@ -17,6 +17,7 @@
           :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}'
         ) {{getNearbyPosts().next.title.length < 10 ? `${getNearbyPosts().next.title} →` : `${getNearbyPosts().next.title.substr(0,8)}... →`}}
         div(v-else) {{Math.max('_'.repeat(getNearbyPosts().prev.title.length + 2), 13)}}
+        
 </template>
 
 <script>
