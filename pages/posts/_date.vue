@@ -9,14 +9,14 @@
         nuxt-link(
           v-if='getNearbyPosts().prev'
           :to='{name:"posts-date",params:{date: getNearbyPosts().prev.date}}'
-        ) {{`< ${getNearbyPosts().prev.title}`}}
-        div(v-else)
+        ) {{getNearbyPosts().prev.title.length < 10 ? `← ${getNearbyPosts().prev.title}` : `← ${getNearbyPosts().prev.title.substr(0,8)}...`}}
+        div(v-else) {{Math.max('_'.repeat(getNearbyPosts().next.title.length + 2), 13)}}
         nuxt-link(to='../') home
         nuxt-link(
           v-if='getNearbyPosts().next'
           :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}'
-        ) {{`${getNearbyPosts().next.title} >`}}
-        div(v-else)
+        ) {{getNearbyPosts().next.title.length < 10 ? `${getNearbyPosts().next.title} →` : `${getNearbyPosts().next.title.substr(0,8)}... →`}}
+        div(v-else) {{Math.max('_'.repeat(getNearbyPosts().prev.title.length + 2), 13)}}
 </template>
 
 <script>
@@ -76,6 +76,7 @@
 .posts__body
   color #555
   line-height 1.8
+  min-height calc(var(--static100vh, 100vh) - 200px)
   >>> a
     color #09c
     text-decoration none
@@ -88,18 +89,26 @@
     margin 30px 0
 
 .posts__prev-home-next
-  display flex
   width 100%
-  height 20px
   display flex
   justify-content space-between
   margin-top 15px
+  border-top 1px solid #ccc
+  border-bottom 1px solid #ccc
+  padding 15px 0
+  font-size 14px
+  filter blur(.3px)
   a
     display block
-    color #18375A
+    color white
+    background-color #0099CC
     text-decoration none
+    padding 2px 5px
+    border-radius 3px
+    &:hover
+      background-color #0374C2
   div
-    width 30px
+    visibility hidden
 
 
 </style>
