@@ -12,10 +12,16 @@
 
 <script>
 import ArticleWrapper from '~/components/ArticleWrapper.vue'
+import Meta from '~/assets/mixins/meta.js'
 export default {
-  head: () =>
+  mixins: [Meta],
+  data: () => 
     ({
-      title: 'お問い合わせ',
+      meta: {
+        title: 'お問い合わせ',
+        type: 'website',
+        url: location.href,
+      },
     }),
   components: {
     ArticleWrapper,

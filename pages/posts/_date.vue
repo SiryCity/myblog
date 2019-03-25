@@ -21,16 +21,18 @@
 </template>
 
 <script>
-  import {createClient} from '~/plugins/contentful.js'
-  import ArticleWrapper from '~/components/ArticleWrapper.vue'
-  import SectionWrapper from '~/components/SectionWrapper.vue'
-  import TagBox from '~/components/TagBox.vue'
-  import SNSBox from '~/components/SNSBox.vue'
+import {createClient} from '~/plugins/contentful.js'
+import ArticleWrapper from '~/components/ArticleWrapper.vue'
+import SectionWrapper from '~/components/SectionWrapper.vue'
+import TagBox from '~/components/TagBox.vue'
+import SNSBox from '~/components/SNSBox.vue'
 
-  export default {
+export default {
     head(){ 
       return {
         title: this.getNearbyPosts().curr.title,
+        type: 'article',
+        url: this.currentUrl,
       }
     },
     components:{
@@ -48,23 +50,31 @@
       return {posts: contents.items.map(item => item.fields)}
     },
 
-    methods:{
-      getNearbyPosts(){
-        return this.posts.reduce((... post) =>
-          post[0]
-          || post[1].date !== this.$route.params.date
-            ? post[0]
-            : {
-              next: post[3][post[2] - 1] || null,
-              curr: post[1],
-              prev: post[3][post[2] + 1] || null
-            }
-        , null)
-      }
+  methods:{
+    getNearbyPosts(){
+      return this.posts.reduce((prev, curr, i, posts) =>
+        prev
+        || curr.date !== this.$route.params.date
+          ? prev
+          : {
+            next: posts[i - 1] || null,
+            curr,
+            prev: posts[i + 1] || null
+          }
+      , null)
     }
-
+  },
+  data: () =>
+    ({
+      currentUrl: null
+    }),
+  mounted(){
+    this.currentUrl = location.href
   }
+
+}
 </script>
+
 
 <style lang="stylus" scoped>
 .posts__title
