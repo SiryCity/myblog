@@ -99,9 +99,7 @@ module.exports = {
     CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
     CTF_PERSON_ID: config.CTF_PERSON_ID,
     CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID,
-    FORMS_API: (process.env.NODE_ENV === 'development')
-    ? process.env.FORMS_API
-    : process.env.FORMS_API
+    FORMS_API: process.env.FORMS_API
   }
 }
 
