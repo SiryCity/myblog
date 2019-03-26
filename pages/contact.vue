@@ -12,17 +12,14 @@
 
 <script>
 import ArticleWrapper from '~/components/ArticleWrapper.vue'
-import Meta from '~/assets/mixins/meta.js'
 export default {
-  mixins: [Meta],
-  data: () => 
-    ({
-      meta: {
+    head(){ 
+      return {
         title: 'お問い合わせ',
         type: 'website',
-        url: location.href,
-      },
-    }),
+        url: this.currentUrl,
+      }
+    },
   components: {
     ArticleWrapper,
   },
@@ -30,5 +27,12 @@ export default {
     ({
       apiKey:`https://docs.google.com/forms/d/e/${context.env.FORMS_API}/viewform?embedded=true`
     }),
+  data: () =>
+    ({
+      currentUrl: null
+    }),
+  mounted(){
+    this.currentUrl = location.href
+  }
 }
 </script>

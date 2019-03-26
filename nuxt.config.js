@@ -1,12 +1,13 @@
-const config = (process.env.NODE_ENV === 'development')
-? require('./.contentful.json')
-: process.env
+const config = process.env.NODE_ENV === 'production'
+? process.env
+: require('./.contentful.json')
+
 //import {createClient} from './plugins/contentful.js'
-const contentful = require('contentful')
+//const contentful = require('contentful')
 
 module.exports = {
   css: ['assets/main.css'],
-  
+  /*
   generate: {
     async routes(){
       const contents = await contentful.createClient({
@@ -33,6 +34,7 @@ module.exports = {
       return [... posts, ... tags]
     }
   },
+  */
   css: [
     { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' }
   ],

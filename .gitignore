@@ -11,5 +11,7 @@ npm-debug.log
 dist
 
 .contentful.json
-
 .env
+
+app.yaml
+secret.yaml
