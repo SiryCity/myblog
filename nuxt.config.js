@@ -6,6 +6,7 @@ const contentful = require('contentful')
 
 module.exports = {
   css: ['assets/main.css'],
+  /*
   generate: {
     async routes(){
       const contents = await contentful.createClient({
@@ -31,7 +32,7 @@ module.exports = {
 
       return [... posts, ... tags]
     }
-  },
+  },*/
   css: [
     { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' }
   ],
