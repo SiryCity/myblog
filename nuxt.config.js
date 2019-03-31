@@ -1,4 +1,6 @@
-
+// const config = process.env.NODE_ENV === 'production'
+// ? require('./.contentful.json')
+// : process.env 
 
 //import {createClient} from './plugins/contentful.js'
 //const contentful = require('contentful')
@@ -58,14 +60,10 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'JavaScript、Python等の技術ブログ。' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'JavaScriptに関するお知らせ' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:url', property: 'og:url', content: 'https://notice-js.com' },
+      { hid: 'og:url', property: 'og:url', content: 'https://jsnotice.com' },
       { hid: 'og:title', property: 'og:title', content: 'JavaScriptに関するお知らせ' },
       { hid: 'og:description', property: 'og:description', content: 'JavaScript、Python等の技術ブログ。' },
-      { hid: 'og:image', property: 'og:image', content: 'https://notice-js.com/ogp-image.png'},
-
-      { name: "robots", content: "noindex" },
-      { name: "robots", content: "nofollow" },
-      { name: "robots", content: "noachieve" },
+      { hid: 'og:image', property: 'og:image', content: 'https://jsnotice.com/ogp-image.png'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

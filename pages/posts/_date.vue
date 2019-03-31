@@ -94,10 +94,15 @@ export default {
     &:hover
       text-decoration underline
   >>> h2
-    font-size 20px
-    margin-top 30px
+    font-size 22px
+    margin 50px 0 20px
+  >>> h3
+    font-size 18px
+    margin 20px 0 10px
   >>> pre
-    margin 30px 0
+    margin 20px 0 30px
+  >>> ol
+    margin 50px 0
 
 .posts__prev-home-next
   width 100%
