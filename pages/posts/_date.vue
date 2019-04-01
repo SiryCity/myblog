@@ -6,17 +6,15 @@
       s-n-s-box
       div.posts__body(v-html='$md.render(getNearbyPosts().curr.body)')
       div.posts__prev-home-next
-        nuxt-link(
+        nuxt-link.posts__link--toprev(
           v-if='getNearbyPosts().prev'
           :to='{name:"posts-date",params:{date: getNearbyPosts().prev.date}}'
         ) {{getNearbyPosts().prev.title.length < 10 ? `← ${getNearbyPosts().prev.title}` : `← ${getNearbyPosts().prev.title.substr(0,8)}...`}}
-        div(v-else) {{Math.max('_'.repeat(getNearbyPosts().next.title.length + 2), 13)}}
-        nuxt-link(:to='{name: "index"}') home
-        nuxt-link(
+        nuxt-link.posts__link--tohome(:to='{name: "index"}') home
+        nuxt-link.posts__link--tonext(
           v-if='getNearbyPosts().next'
           :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}'
         ) {{getNearbyPosts().next.title.length < 10 ? `${getNearbyPosts().next.title} →` : `${getNearbyPosts().next.title.substr(0,8)}... →`}}
-        div(v-else) {{Math.max('_'.repeat(getNearbyPosts().prev.title.length + 2), 13)}}
         
 </template>
 
@@ -106,25 +104,43 @@ export default {
 
 .posts__prev-home-next
   width 100%
+  height 60px
   display flex
   justify-content space-between
-  margin-top 15px
+  margin-top 30px
   border-top 1px solid #ccc
   border-bottom 1px solid #ccc
   padding 15px 0
   font-size 14px
   filter blur(.3px)
+  position relative
   a
+    height 24px
+    line-height 20px
     display block
     color white
     background-color #0099CC
     text-decoration none
     padding 2px 5px
     border-radius 3px
+    position absolute
+    top 0
+    bottom 0
+    margin auto 
     &:hover
       background-color #0374C2
-  div
-    visibility hidden
+  .posts__link--toprev
+    left 0
+    width 160px
+  .posts__link--tohome
+    left 0
+    right 0
+    width 64px
+    text-align center
+  .posts__link--tonext
+    right 0
+    width 160px
+    text-align right
 
 
 </style>
