@@ -17,7 +17,7 @@ export default {
       meta: {
         title: '全記事一覧',
         type: 'article',
-        url: location.href,
+        url: null,
       },
     }),
   components:{
@@ -32,6 +32,9 @@ export default {
     })
     return {posts: contents.items.map(item => item.fields)}
   },
+  mounted(){
+    this.url = location.href
+  }
 
 }
 </script>
