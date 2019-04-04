@@ -40,7 +40,13 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/markdownit',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: process.env.GA_ID
+      }
+    ]
   ],
   markdownit: {
     injected: true,
@@ -97,7 +103,8 @@ module.exports = {
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN || require('./.contentful.json').CTF_CDA_ACCESS_TOKEN,
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID || require('./.contentful.json').CTF_BLOG_POST_TYPE_ID,
     
-    FORMS_API: process.env.FORMS_API
+    FORMS_API: process.env.FORMS_API,
+    GA_ID: process.env.GA_ID,
   }
 }
 
