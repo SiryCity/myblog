@@ -44,7 +44,7 @@ module.exports = {
     [
       '@nuxtjs/google-analytics',
       {
-        id: process.env.GA_ID
+        id: process.env.GA_ID || require('./.contentful.json').GA_ID
       }
     ]
   ],
@@ -104,7 +104,7 @@ module.exports = {
     CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID || require('./.contentful.json').CTF_BLOG_POST_TYPE_ID,
     
     FORMS_API: process.env.FORMS_API,
-    GA_ID: process.env.GA_ID,
+    GA_ID: process.env.GA_ID || require('./.contentful.json').GA_ID,
   }
 }
 
