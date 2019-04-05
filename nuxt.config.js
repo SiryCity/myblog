@@ -63,12 +63,12 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
 
-      { hid: 'description', name: 'description', content: 'JavaScript、Python等の技術ブログ。' },
+      { hid: 'description', name: 'description', content: 'JavaScriptに関する技術ブログ。著者のJavaScript、CSS、Pythonなど様々な情報をご覧いただけます。' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'JavaScriptに関するお知らせ' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:url', property: 'og:url', content: 'https://jsnotice.com' },
       { hid: 'og:title', property: 'og:title', content: 'JavaScriptに関するお知らせ' },
-      { hid: 'og:description', property: 'og:description', content: 'JavaScript、Python等の技術ブログ。' },
+      { hid: 'og:description', property: 'og:description', content: 'JavaScriptに関する技術ブログ。著者のJavaScript、CSS、Pythonなど様々な情報をご覧いただけます。' },
       { hid: 'og:image', property: 'og:image', content: 'https://jsnotice.com/ogp-image.png'},
     ],
     link: [

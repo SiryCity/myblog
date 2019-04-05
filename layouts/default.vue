@@ -4,7 +4,7 @@
       header
         nuxt-link(:to='{name: "index"}')
           h1 JavaScriptに関するお知らせ
-          div JavaScriptやPythonの技術ブログ
+          div JavaScriptやCSS、Pythonの技術ブログ
       nav
         nuxt-link(:to='{name: "index"}') HOME
         nuxt-link(:to='{name: "contact"}') CONTACT
