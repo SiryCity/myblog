@@ -10,6 +10,7 @@
         nuxt-link(:to='{name: "contact"}') CONTACT
       main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]'): nuxt
       footer
+        nuxt-link(:to='{name: "privacy"}') 個人情報保護方針
         div &copy; 2019 JavaScriptに関するお知らせ
 </template>
 
@@ -107,6 +108,10 @@ html
       align-items center
       color white
       order 40
+      a
+        color white
+        text-decoration none
+        
 
 .root--pc
   max-width 1100px
