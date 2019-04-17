@@ -1,13 +1,21 @@
 <template lang="pug">
   article-wrapper
+    //- SNSリンクや広告のエリア
     bread-crumbs
+
+    //- 左側
     section-area(:width='$store.state.device.isSP ? "100vw" : "calc(100vw - 80px - 15px * 3 - 330px)"')
+      //- NEWS
       small-posts(:posts='posts' heading='NEWS' prefix='ブログ「' postfix='」 が投稿されました。')
+
+    //- 右側
     section-area(:width='$store.state.device.isSP ? "100vw" : "330px"')
+      //- AUTHOR
       section-wrapper(heading='AUTHOR')
         a.author(href='https://rm-js.com')
           img(src='~/assets/icon.svg')
           div MIZUTANI Ryuto
+      //- BLOG
       large-posts(:posts='posts' heading='BLOG')
 </template>
 

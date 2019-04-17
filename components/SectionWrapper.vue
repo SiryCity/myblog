@@ -18,12 +18,16 @@ export default {
   background-color #fefefe
   box-shadow 1px 1px 2px rgba(128,128,128,0.5)
   overflow scroll
+  display flex
+  flex-wrap wrap
+  justify-content space-between
 .section--SP
   border-top 1px dotted #cccccc
 .section--PC
   margin-bottom 15px
 
 .section__heading__wrapper
+  width 100%
   display flex
   justify-content space-between
   align-items flex-start

@@ -76,6 +76,7 @@ export default {
 
 <style lang="stylus" scoped>
 .posts__title
+  width 100%
   font-size 20px
   padding 15px 0
   margin-bottom 15px

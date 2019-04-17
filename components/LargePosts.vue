@@ -25,6 +25,7 @@ export default {
 
 <style lang="stylus" scoped>
 .post-large
+  width 100%
   margin 5px 0
   padding 5px 0
   box-sizing border-box

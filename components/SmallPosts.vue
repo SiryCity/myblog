@@ -23,6 +23,7 @@ export default {
 
 <style lang="stylus" scoped>
 .post-small
+  width 100%
   margin 5px 0
   padding 5px 0
   font-size 14px
