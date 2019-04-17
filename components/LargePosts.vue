@@ -6,7 +6,13 @@ section-wrapper(:heading='heading')
     :key='`post-large${i}`',
     :class='{"post--notfirst": i}'
   )
-    img(src='~/assets/icon.svg')
+    img(:src=`
+      post.tags[0] === 'JavaScript'
+      ? js
+      : post.tags[0] === 'CSS'
+      ? css
+      : icon
+    `)
     div
       p.post-large__tag {{post.tags[0]}}
       p.post-large__date {{post.date.replace(/-/g, '/')}}
@@ -15,11 +21,19 @@ section-wrapper(:heading='heading')
 
 <script>
 import SectionWrapper from '~/components/SectionWrapper.vue'
+import icon from '~/assets/icon.svg'
+import js from '~/assets/js.svg'
+import css from '~/assets/css.svg'
 export default {
   props: ['posts', 'heading'],
   components:{
     SectionWrapper
   },
+  computed:{
+    icon: () => icon,
+    js: () => js,
+    css: () => css,
+  }
 }
 </script>
 

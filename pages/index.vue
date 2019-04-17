@@ -15,6 +15,12 @@
         a.author(href='https://rm-js.com')
           img(src='~/assets/icon.svg')
           div MIZUTANI Ryuto
+        div.author
+          img(src='~/assets/js.svg')
+          div JavaScript
+        div.author
+          img(src='~/assets/css.svg')
+          div CSS
       //- BLOG
       large-posts(:posts='posts' heading='BLOG')
 </template>
@@ -66,6 +72,7 @@
   align-items center
   justify-content space-between
   text-decoration none
+  margin 7.5px 0
   img
     width 110px
     height 110px
