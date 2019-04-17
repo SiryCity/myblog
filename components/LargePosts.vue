@@ -11,6 +11,8 @@ section-wrapper(:heading='heading')
       ? js
       : post.tags[0] === 'CSS'
       ? css
+      : post.tags[0] === 'Python'
+      ? python
       : icon
     `)
     div
@@ -24,6 +26,7 @@ import SectionWrapper from '~/components/SectionWrapper.vue'
 import icon from '~/assets/icon.svg'
 import js from '~/assets/js.svg'
 import css from '~/assets/css.svg'
+import python from '~/assets/python.svg'
 export default {
   props: ['posts', 'heading'],
   components:{
@@ -33,6 +36,7 @@ export default {
     icon: () => icon,
     js: () => js,
     css: () => css,
+    python: () => python,
   }
 }
 </script>

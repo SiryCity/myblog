@@ -15,12 +15,15 @@
         a.author(href='https://rm-js.com')
           img(src='~/assets/icon.svg')
           div MIZUTANI Ryuto
-        div.author
+        nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "JavaScript"}}')
           img(src='~/assets/js.svg')
           div JavaScript
-        div.author
+        nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "CSS"}}')
           img(src='~/assets/css.svg')
           div CSS
+        nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "Python"}}')
+          img(src='~/assets/python.svg')
+          div Python
       //- BLOG
       large-posts(:posts='posts' heading='BLOG')
 </template>
