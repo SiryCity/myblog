@@ -10,11 +10,8 @@
 
     //- 右側
     section-area(:width='$store.state.device.isSP ? "100vw" : "330px"')
-      //- AUTHOR
-      section-wrapper(heading='AUTHOR')
-        a.author(href='https://rm-js.com')
-          img(src='~/assets/icon.svg')
-          div MIZUTANI Ryuto
+      //- THEME
+      section-wrapper(heading='THEME')
         nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "JavaScript"}}')
           img(src='~/assets/js.svg')
           div JavaScript
@@ -24,6 +21,15 @@
         nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "Python"}}')
           img(src='~/assets/python.svg')
           div Python
+        nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "Others"}}')
+          img(src='~/assets/icon.svg')
+          div Others
+      
+      //- AUTHOR
+      section-wrapper(heading='AUTHOR')
+        a.author(href='https://rm-js.com')
+          img(src='~/assets/icon.svg')
+          div MIZUTANI Ryuto
       //- BLOG
       large-posts(:posts='posts' heading='BLOG')
 </template>

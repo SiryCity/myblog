@@ -34,10 +34,13 @@ export default {
 .section__heading
   color #0475C2
   display inline-block
-  font-size 22px
+  font-size 20px
   height 41px
+  line-height 50px
   border-bottom 2.2px solid #0475c2
   margin-bottom 5px
+  font-family serif
+  font-weight bold 
   filter blur(.5px)
   &:first-letter
     font-size 40px
