@@ -84,6 +84,7 @@ export default {
   border-bottom 1px solid #ccc
 
 .posts__body
+  width 100%
   color #555
   line-height 1.8
   min-height calc(var(--static100vh, 100vh) - 200px)
