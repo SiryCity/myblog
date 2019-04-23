@@ -5,6 +5,12 @@
       v-for='(tag, i) in tags'
       :key='`tagbox-${i}`'
       :to='{name:"tags-tagname", params:{tagname: tag}}'
+      :class=`{
+        'tag--js': tag === 'JavaScript',
+        'tag--css': tag === 'CSS',
+        'tag--python': tag === 'Python',
+        'tag--others': tag === 'Others',
+      }`
     ) {{tag}}
 </template>
 
@@ -30,6 +36,15 @@ export default {
   border 1px solid #ccc
 .tag
   color #fff
-  background-color #FF85AD
   text-decoration none
+
+.tag--js
+  background-color #FF85AD
+.tag--css
+  background-color #56BF00
+.tag--python
+  background-color #787FDC
+.tag--others
+  background-color #FF9900
+
 </style>

@@ -2,12 +2,13 @@
   section.section(:class='[$store.state.device.isSP ? "section--SP" : "section--PC"]')
     div.section__heading__wrapper
       div.section__heading(v-if='heading') {{heading}}
+        div.section__heading__kana {{kana}}
     slot
 </template>
 
 <script>
 export default {
-  props: ['heading']
+  props: ['heading', 'kana']
 }
 </script>
 
@@ -42,6 +43,15 @@ export default {
   font-family serif
   font-weight bold 
   filter blur(.5px)
+  position relative
   &:first-letter
     font-size 40px
+  .section__heading__kana
+    font-family "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+    font-size 10px
+    color #666
+    position absolute
+    right 0
+    top -10px
+
 </style>

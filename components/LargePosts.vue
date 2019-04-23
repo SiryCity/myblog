@@ -1,5 +1,5 @@
 <template lang="pug">
-section-wrapper(:heading='heading')
+section-wrapper(:heading='heading', :kana='kana')
   nuxt-link.post-large(
     :to='{name:"posts-date", params:{date: post.date}}'
     v-for='(post, i) in posts',
@@ -28,7 +28,7 @@ import js from '~/assets/js.svg'
 import css from '~/assets/css.svg'
 import python from '~/assets/python.svg'
 export default {
-  props: ['posts', 'heading'],
+  props: ['posts', 'heading', 'kana'],
   components:{
     SectionWrapper
   },

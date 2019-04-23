@@ -1,5 +1,5 @@
 <template lang="pug">
-section-wrapper(:heading='heading')
+section-wrapper(:heading='heading', :kana='kana')
   div.post-small(
     v-for='(post, i) in posts',
     :key='`post-small${i}`'
@@ -13,7 +13,7 @@ section-wrapper(:heading='heading')
 import SectionWrapper from '~/components/SectionWrapper.vue'
 import TagBox from '~/components/TagBox.vue'
 export default {
-  props: ['posts', 'heading', 'prefix', 'postfix'],
+  props: ['posts', 'heading', 'kana', 'prefix', 'postfix'],
   components:{
     SectionWrapper,
     TagBox

@@ -6,12 +6,12 @@
     //- 左側
     section-area(:width='$store.state.device.isSP ? "100vw" : "calc(100vw - 80px - 15px * 3 - 330px)"')
       //- NEWS
-      small-posts(:posts='posts' heading='NEWS' prefix='ブログ「' postfix='」 が投稿されました。')
+      small-posts(:posts='posts' heading='NEWS' kana='ニュース' prefix='ブログ「' postfix='」 が投稿されました。')
 
     //- 右側
     section-area(:width='$store.state.device.isSP ? "100vw" : "330px"')
       //- THEME
-      section-wrapper(heading='THEME')
+      section-wrapper(heading='THEME' kana='記事一覧')
         nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "JavaScript"}}')
           img(src='~/assets/js.svg')
           div JavaScript
@@ -26,12 +26,12 @@
           div Others
       
       //- AUTHOR
-      section-wrapper(heading='AUTHOR')
+      section-wrapper(heading='AUTHOR' kana='作者情報')
         a.author(href='https://rm-js.com')
           img(src='~/assets/icon.svg')
           div MIZUTANI Ryuto
       //- BLOG
-      large-posts(:posts='posts' heading='BLOG')
+      large-posts(:posts='posts' heading='BLOG' kana='ブログ')
 </template>
 
 <script>
