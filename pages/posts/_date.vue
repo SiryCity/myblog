@@ -101,8 +101,11 @@ export default {
     margin 20px 0 10px
   >>> pre
     margin 20px 0 30px
+    code
+      overflow scroll
   >>> ol
     margin 50px 0
+  
 
 .posts__prev-home-next
   width 100%
