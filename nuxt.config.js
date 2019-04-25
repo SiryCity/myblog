@@ -41,6 +41,7 @@ module.exports = {
   modules: [
     '@nuxtjs/markdownit',
     '@nuxtjs/dotenv',
+    '@nuxtjs/sitemap',
     [
       '@nuxtjs/google-analytics',
       {
@@ -48,6 +49,12 @@ module.exports = {
       }
     ]
   ],
+  sitemap: {
+    path: 'sitemap.xml',
+    hostname: 'https://jsnotice.com',
+    cacheTime: 1000 * 60 * 15,
+    generate: false,
+  },
   markdownit: {
     injected: true,
     use: [
