@@ -53,7 +53,8 @@ module.exports = {
         id: (process.env.NODE_ENV === 'production')
           ? process.env.CA_PUB
           : process.env.CA_PUB,
-        pageLevelAds: true
+        pageLevelAds: true,
+        test: true
       },
     ],
   ],
