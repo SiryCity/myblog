@@ -4,7 +4,9 @@
       tag-box(:date='getNearbyPosts().curr.date' :tags='getNearbyPosts().curr.tags')
       h1.posts__title {{getNearbyPosts().curr.title}}
       s-n-s-box
+      adsbygoogle
       div.posts__body(v-html='$md.render(getNearbyPosts().curr.body)')
+      adsbygoogle
       div.posts__prev-home-next
         nuxt-link.posts__link--toprev(
           v-if='getNearbyPosts().prev'
