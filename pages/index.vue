@@ -12,23 +12,22 @@
     section-area(:width='$store.state.device.isSP ? "100vw" : "330px"')
       //- THEME
       section-wrapper(heading='THEME' kana='記事一覧')
-        nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "JavaScript"}}')
+        nuxt-link.theme(:to='{name:"tags-tagname", params:{tagname: "JavaScript"}}')
           img(src='~/assets/js.svg')
           div JavaScript
-        nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "CSS"}}')
+        nuxt-link.theme(:to='{name:"tags-tagname", params:{tagname: "CSS"}}')
           img(src='~/assets/css.svg')
           div CSS
-        nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "Python"}}')
+        nuxt-link.theme(:to='{name:"tags-tagname", params:{tagname: "Python"}}')
           img(src='~/assets/python.svg')
           div Python
-        nuxt-link.author(:to='{name:"tags-tagname", params:{tagname: "Others"}}')
+        nuxt-link.theme(:to='{name:"tags-tagname", params:{tagname: "Others"}}')
           img(src='~/assets/icon.svg')
           div Others
       
       //- AUTHOR
       section-wrapper(heading='AUTHOR' kana='作者情報')
         a.author(href='https://rm-js.com')
-          img(src='~/assets/icon.svg')
           div MIZUTANI Ryuto
       //- BLOG
       large-posts(:posts='posts' heading='BLOG' kana='ブログ')
@@ -71,7 +70,7 @@
 
 <style lang="stylus" scoped>
 
-.author
+.theme
   width 143px
   height 143px
   border 1px solid #cccccc
@@ -95,4 +94,13 @@
     background-color #0473C2
     text-align center
 
+.author
+  width 143px
+  height 50px
+  line-height 50px
+  color white
+  background linear-gradient(#0073c2, #02609F)
+  text-decoration none
+  text-align center
+  font-size 15px
 </style>

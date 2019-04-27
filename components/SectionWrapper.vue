@@ -34,7 +34,6 @@ export default {
   align-items flex-start
 .section__heading
   color #0475C2
-  display inline-block
   font-size 20px
   height 41px
   line-height 50px
