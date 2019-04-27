@@ -46,7 +46,13 @@ module.exports = {
       '@nuxtjs/google-analytics',
       {
         id: process.env.GA_ID || require('./.contentful.json').GA_ID
-      }
+      },
+      '@nuxtjs/google-adsense', {
+        id: (process.env.NODE_ENV === 'production')
+          ? process.env.CA_PUB
+          : process.env.CA_PUB,
+        pageLevelAds: true
+      },
     ]
   ],
   sitemap: {
