@@ -7,7 +7,8 @@
     section-area(:width='$store.state.device.isSP ? "100vw" : "calc(100vw - 80px - 15px * 3 - 330px)"')
       //- NEWS
       small-posts(:posts='posts' heading='NEWS' kana='ニュース' prefix='ブログ「' postfix='」 が投稿されました。')
-
+      
+      adsbygoogle
     //- 右側
     section-area(:width='$store.state.device.isSP ? "100vw" : "330px"')
       //- THEME
