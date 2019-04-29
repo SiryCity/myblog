@@ -50,9 +50,7 @@ module.exports = {
     ],
     [
       '@nuxtjs/google-adsense', {
-        id: (process.env.NODE_ENV === 'production')
-          ? process.env.CA_PUB
-          : process.env.CA_PUB,
+        id: 'ca-pub-7034999423632409',
         pageLevelAds: true,
         test: true
       },
