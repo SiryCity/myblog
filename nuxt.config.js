@@ -52,7 +52,6 @@ module.exports = {
       '@nuxtjs/google-adsense', {
         id: 'ca-pub-7034999423632409',
         pageLevelAds: true,
-        test: true
       },
     ],
   ],
@@ -119,7 +118,6 @@ module.exports = {
     
     FORMS_API: process.env.FORMS_API,
     GA_ID: process.env.GA_ID || require('./.contentful.json').GA_ID,
-    CA_PUB: process.env.CA_PUB
   }
 }
 
