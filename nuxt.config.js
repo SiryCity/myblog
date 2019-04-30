@@ -51,7 +51,6 @@ module.exports = {
     [
       '@nuxtjs/google-adsense', {
         id: 'ca-pub-7034999423632409',
-        pageLevelAds: true,
       },
     ],
   ],
