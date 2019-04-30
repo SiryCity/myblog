@@ -1,10 +1,10 @@
 <template lang="pug">
-  article.article
+  div.root__wrapper(:class='{"root--PC": !$store.state.device.isSP}')
     slot
 </template>
 
 <style lang="stylus" scoped>
-.article
+.root__wrapper
   width 100%
   height 100%
   min-height 100vh
@@ -12,4 +12,6 @@
   flex-wrap wrap
   justify-content space-between
   align-content flex-start
+.root--PC
+  padding 15px
 </style>

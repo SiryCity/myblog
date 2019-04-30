@@ -1,7 +1,7 @@
 <template lang="pug">
   section.section(:class='[$store.state.device.isSP ? "section--SP" : "section--PC"]')
     div.section__heading__wrapper
-      div.section__heading(v-if='heading') {{heading}}
+      div.section__heading(v-if='heading || kana') {{heading}}
         div.section__heading__kana {{kana}}
     slot
 </template>

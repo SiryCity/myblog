@@ -1,6 +1,6 @@
 <template lang="pug">
   div.background(:class='{"background--finished": $store.state.device.isFinished}')
-    div#root(:class='{"root--pc": !$store.state.device.isSP}')
+    div#root
       header
         nuxt-link(:to='{name: "index"}')
           h1 JavaScriptに関するお知らせ
@@ -8,7 +8,14 @@
       nav
         nuxt-link(:to='{name: "index"}') HOME
         nuxt-link(:to='{name: "contact"}') CONTACT
-      main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]'): nuxt
+      main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]')
+        root-wrapper
+          bread-crumbs
+          section-wrapper(heading='　　　　　' kana='スポンサーリンク')
+            adsbygoogle(:ad-slot='"8176575284"')
+          nuxt
+          section-wrapper(heading='　　　　　' kana='スポンサーリンク')
+            adsbygoogle(:ad-slot='"8176575284"')
       footer
         nuxt-link(:to='{name: "privacy"}') 個人情報保護方針
         div &copy; 2019 JavaScriptに関するお知らせ
@@ -16,7 +23,15 @@
 
 
 <script> 
+import RootWrapper from '~/components/RootWrapper.vue'
+import SectionWrapper from '~/components/SectionWrapper.vue'
+import BreadCrumbs from '~/components/BreadCrumbs.vue'
 export default {
+  components:{
+    RootWrapper,
+    SectionWrapper,
+    BreadCrumbs,
+  },
   mounted(){
     if(process.client) this.$store.commit('device/identifyDeviceType')
   }
@@ -33,6 +48,7 @@ html
   -moz-osx-font-smoothing grayscale
   -webkit-font-smoothing antialiased
   box-sizing border-box
+  background-color #0475C2
 *, *:before, *:after
   box-sizing border-box
   margin 0
@@ -51,6 +67,8 @@ html
   opacity 0
   #root
     width 100%
+    max-width 1100px
+    height 100%
     display flex
     flex-direction column
     align-items center
@@ -95,6 +113,7 @@ html
         &:nth-of-type(n+2)
           border-left 1px solid #0475C2
     main
+      height 100%
       background-color #f6f6f6
       box-shadow 1px 1px 2px rgba(128,128,128,0.5) inset
       overflow hidden
@@ -111,16 +130,12 @@ html
       a
         color white
         text-decoration none
-        
 
-.root--pc
-  max-width 1100px
 .main--sp
   width 100vw
   order 15
 .main--pc
   width calc(100% - 80px)
   order 30
-  margin 0 0 15px
 </style>
 

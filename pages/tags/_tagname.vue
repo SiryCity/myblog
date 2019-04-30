@@ -1,13 +1,11 @@
 <template lang="pug">
   article-wrapper
-    bread-crumbs
     small-posts(:posts='getPostsIncludingTag()' :heading='this.$route.params.tagname' kana='記事一覧')
       nuxt-link(:to='{name: "index"}') home
 </template>
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import BreadCrumbs from '~/components/BreadCrumbs.vue'
 import ArticleWrapper from '~/components/ArticleWrapper.vue'
 import SmallPosts from '~/components/SmallPosts.vue'
 import Meta from '~/assets/mixins/meta.js'
@@ -24,7 +22,6 @@ export default {
     }
   },
   components:{
-    BreadCrumbs,
     ArticleWrapper,
     SmallPosts,
   },

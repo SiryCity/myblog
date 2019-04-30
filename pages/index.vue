@@ -1,14 +1,11 @@
 <template lang="pug">
   article-wrapper
-    //- SNSリンクや広告のエリア
-    bread-crumbs
 
     //- 左側
     section-area(:width='$store.state.device.isSP ? "100vw" : "calc(100vw - 80px - 15px * 3 - 330px)"')
       //- NEWS
       small-posts(:posts='posts' heading='NEWS' kana='ニュース' prefix='ブログ「' postfix='」 が投稿されました。')
       
-      adsbygoogle(:ad-slot='"8176575284"')
     //- 右側
     section-area(:width='$store.state.device.isSP ? "100vw" : "330px"')
       //- THEME
@@ -36,7 +33,6 @@
 
 <script>
   import {createClient} from '~/plugins/contentful.js'
-  import BreadCrumbs from '~/components/BreadCrumbs.vue'
   import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SectionWrapper from '~/components/SectionWrapper.vue'
   import SectionArea from '~/components/SectionArea.vue'
@@ -51,7 +47,6 @@
         titleTemplate: null,
       }),
     components:{
-      BreadCrumbs,
       ArticleWrapper,
       SectionWrapper,
       SectionArea,
