@@ -12,10 +12,10 @@
         root-wrapper
           bread-crumbs
           ad-wrapper
-            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "200px"}')
+            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "320px"}')
           nuxt
           ad-wrapper
-            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "200px"}')
+            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "320px"}')
       footer
         nuxt-link(:to='{name: "privacy"}') 個人情報保護方針
         div &copy; 2019 JavaScriptに関するお知らせ
