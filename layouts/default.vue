@@ -11,10 +11,10 @@
       main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]')
         root-wrapper
           bread-crumbs
-          ad-wrapper(heading='　　　　　' kana='スポンサーリンク')
+          ad-wrapper
             adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "200px"}')
           nuxt
-          ad-wrapper(heading='　　　　　' kana='スポンサーリンク')
+          ad-wrapper
             adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "200px"}')
       footer
         nuxt-link(:to='{name: "privacy"}') 個人情報保護方針

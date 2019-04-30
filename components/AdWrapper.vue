@@ -1,28 +1,30 @@
 <template lang="pug">
-  section.section(:class='[$store.state.device.isSP ? "section--SP" : "section--PC"]')
-    div.section__heading スポンサーリンク
+  ad.ad(:class='[$store.state.device.isSP ? "ad--SP" : "ad--PC"]')
+    div.ad__heading スポンサーリンク
     slot
 </template>
 
 
 <style lang="stylus" scoped>
-.section
+.ad
   width 100%
   background-color #fefefe
   box-shadow 1px 1px 2px rgba(128,128,128,0.5)
   overflow scroll
   display flex
-  justify-content center
-.section--SP
+  flex-direction column
+  justify-content space-evenly
+  align-items center
+.ad--SP
   border-top 1px dotted #cccccc
-.section--PC
+.ad--PC
   margin-bottom 15px
 
-.section__heading
-  height 40px
+.ad__heading
+  height 20px
+  line-height 20px
   color #666
   font-size 12px
-  line-height 50px
   padding-left 7px
   font-weight bold
 
