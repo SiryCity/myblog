@@ -15,8 +15,8 @@
         a(href='https://policies.google.com/technologies/partner-sites?hl=ja') こちら
         | をクリックしてください。
 
-      
-      adsbygoogle(:ad-slot='"8176575284"')
+      no-ssr
+        adsbygoogle(:ad-slot='"8176575284"')
 </template>
 
 <script>
