@@ -8,7 +8,7 @@
       //- NEWS
       small-posts(:posts='posts' heading='NEWS' kana='ニュース' prefix='ブログ「' postfix='」 が投稿されました。')
       
-      adsbygoogle
+      adsbygoogle(:ad-slot='"8176575284"')
     //- 右側
     section-area(:width='$store.state.device.isSP ? "100vw" : "330px"')
       //- THEME
