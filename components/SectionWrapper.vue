@@ -15,6 +15,7 @@ export default {
 <style lang="stylus" scoped>
 .section
   width 100%
+  min-height 124px
   padding 15px
   background-color #fefefe
   box-shadow 1px 1px 2px rgba(128,128,128,0.5)

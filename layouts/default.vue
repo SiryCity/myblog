@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.background(:class='{"background--finished": $store.state.device.isFinished}')
+  div.background
     div#root
       header
         nuxt-link(:to='{name: "index"}')
@@ -11,11 +11,11 @@
       main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]')
         root-wrapper
           bread-crumbs
-          section-wrapper(heading='　　　　　' kana='スポンサーリンク')
-            adsbygoogle(:ad-slot='"8176575284"')
+          ad-wrapper(heading='　　　　　' kana='スポンサーリンク')
+            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "200px"}')
           nuxt
-          section-wrapper(heading='　　　　　' kana='スポンサーリンク')
-            adsbygoogle(:ad-slot='"8176575284"')
+          ad-wrapper(heading='　　　　　' kana='スポンサーリンク')
+            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "200px"}')
       footer
         nuxt-link(:to='{name: "privacy"}') 個人情報保護方針
         div &copy; 2019 JavaScriptに関するお知らせ
@@ -24,12 +24,12 @@
 
 <script> 
 import RootWrapper from '~/components/RootWrapper.vue'
-import SectionWrapper from '~/components/SectionWrapper.vue'
+import AdWrapper from '~/components/AdWrapper.vue'
 import BreadCrumbs from '~/components/BreadCrumbs.vue'
 export default {
   components:{
     RootWrapper,
-    SectionWrapper,
+    AdWrapper,
     BreadCrumbs,
   },
   mounted(){
@@ -53,18 +53,11 @@ html
   box-sizing border-box
   margin 0
 
-.background--finished
-  visibility visible !important
-  opacity 1 !important
 .background
   width 100%
-  visibility hidden
   display flex
   justify-content center
   background-color #f6f6f6
-  transition-duration .5s
-  transition-property opacity visibility
-  opacity 0
   #root
     width 100%
     max-width 1100px
