@@ -9,12 +9,14 @@
         nuxt-link.posts__link--toprev(
           v-if='getNearbyPosts().prev'
           :to='{name:"posts-date",params:{date: getNearbyPosts().prev.date}}'
-        ) {{getNearbyPosts().prev.title.length < 10 ? `← ${getNearbyPosts().prev.title}` : `← ${getNearbyPosts().prev.title.substr(0,8)}...`}}
+        ) ←prev
+        div(v-else)
         nuxt-link.posts__link--tohome(:to='{name: "index"}') home
         nuxt-link.posts__link--tonext(
           v-if='getNearbyPosts().next'
           :to='{name:"posts-date", params:{date: getNearbyPosts().next.date}}'
-        ) {{getNearbyPosts().next.title.length < 10 ? `${getNearbyPosts().next.title} →` : `${getNearbyPosts().next.title.substr(0,8)}... →`}}
+        ) next→
+        div(v-else)
         
 </template>
 
@@ -118,34 +120,24 @@ export default {
   padding 15px 0
   font-size 14px
   filter blur(.3px)
-  position relative
+  display flex
+  justify-content space-between
   a
+  div
     height 24px
+    width 60px
+    max-width 33%
     line-height 20px
-    display block
+    text-align center
     color white
     background-color #0099CC
     text-decoration none
     padding 2px 5px
     border-radius 3px
-    position absolute
-    top 0
-    bottom 0
-    margin auto 
     &:hover
       background-color #0374C2
-  .posts__link--toprev
-    left 0
-    width 160px
-  .posts__link--tohome
-    left 0
-    right 0
-    width 64px
-    text-align center
-  .posts__link--tonext
-    right 0
-    width 160px
-    text-align right
 
+  div
+    visibility hidden
 
 </style>

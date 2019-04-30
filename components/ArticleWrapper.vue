@@ -1,5 +1,6 @@
 <template lang="pug">
-  article.article(:class='{"article--PC": !$store.state.device.isSP}'): slot
+  article.article(:class='{"article--PC": !$store.state.device.isSP}')
+    slot
 </template>
 
 <style lang="stylus" scoped>

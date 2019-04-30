@@ -1,7 +1,7 @@
 <template lang="pug">
   article-wrapper
     bread-crumbs
-    small-posts(:posts='posts' heading='BLOG')
+    small-posts(:posts='posts' heading='BLOG' kana='記事一覧' :SNS='true')
         nuxt-link(:to='{name: "index"}') home
 </template>
 
@@ -17,7 +17,7 @@ export default {
   data: () => 
     ({
       meta: {
-        title: '全記事一覧',
+        title: '記事一覧',
         type: 'article',
         url: null,
       },

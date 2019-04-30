@@ -18,8 +18,9 @@ export default {
       meta: {
         title: `タグ: ${this.$route.params.tagname}`,
         type: 'article',
-        url: location.href,
+        url: this.currentUrl,
       },
+      currentUrl: null
     }
   },
   components:{
@@ -40,7 +41,12 @@ export default {
     getPostsIncludingTag(){
       return this.posts.filter(post => post.tags.includes(this.$route.params.tagname))
     }
-  }
+  },
+  mounted(){
+    this.currentUrl = location.href
+  },
+
+
 }
 </script>
 
