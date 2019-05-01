@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.background
+  div.background(:class='{"background--not-finished": !$store.state.device.isFinished}')
     div#root
       header
         nuxt-link(:to='{name: "index"}')
@@ -12,10 +12,10 @@
         root-wrapper
           bread-crumbs
           ad-wrapper
-            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "320px"}')
+            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "400px"}')
           nuxt
           ad-wrapper
-            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "320px"}')
+            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "400px"}')
       footer
         nuxt-link(:to='{name: "privacy"}') 個人情報保護方針
         div &copy; 2019 JavaScriptに関するお知らせ
@@ -48,16 +48,25 @@ html
   -moz-osx-font-smoothing grayscale
   -webkit-font-smoothing antialiased
   box-sizing border-box
-  background-color #0475C2
+  background-color #f6f6f6
 *, *:before, *:after
   box-sizing border-box
   margin 0
+
+.background--not-finished
+  opacity 0 !important
+  visibility hidden !important
 
 .background
   width 100%
   display flex
   justify-content center
   background-color #f6f6f6
+  opacity 1
+  visibility visible
+  transition-duration 1s
+  transition-property opacity, visibility
+
   #root
     width 100%
     max-width 1100px

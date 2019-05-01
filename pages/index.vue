@@ -59,7 +59,15 @@
         'content_type': env.CTF_BLOG_POST_TYPE_ID,
         order: '-fields.date',
       })
-      return {posts: contents.items.map(item => item.fields)}
+      return {
+        posts: contents.items.map(item => 
+          ({
+            title: item.fields.title,
+            date: item.fields.date,
+            tags: item.fields.tags,
+          })
+        )
+      }
     }
   }
 </script>

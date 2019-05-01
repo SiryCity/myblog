@@ -3,7 +3,7 @@
     iframe(
       :src='apiKey',
       width='100%',
-      height='100%',
+      height='720px',
       frameborder='0',
       marginheight='0',
       marginwidth='0'
