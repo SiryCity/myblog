@@ -1,5 +1,8 @@
 <template lang="pug">
-  section.section(:class='[$store.state.device.isSP ? "section--SP" : "section--PC"]')
+  section.section(
+    :class='[$store.state.device.isSP ? "section--SP" : "section--PC"]'
+    :style='{"max-width": maxWidth || "unset"}'
+  )
     div.section__heading__wrapper
       div.section__heading(v-if='heading || kana') {{heading}}
         div.section__heading__kana {{kana}}
@@ -8,7 +11,7 @@
 
 <script>
 export default {
-  props: ['heading', 'kana']
+  props: ['heading', 'kana', 'maxWidth']
 }
 </script>
 

@@ -1,24 +1,23 @@
 <template lang="pug">
-  div.background(:class='{"background--not-finished": !$store.state.device.isFinished}')
-    div#root
-      header
-        nuxt-link(:to='{name: "index"}')
-          h1 JavaScriptに関するお知らせ
-          div JavaScriptやCSS、Pythonの技術ブログ
-      nav
-        nuxt-link(:to='{name: "index"}') HOME
-        nuxt-link(:to='{name: "contact"}') CONTACT
-      main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]')
-        root-wrapper
-          bread-crumbs
-          ad-wrapper
-            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "400px"}')
-          nuxt
-          ad-wrapper
-            adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "400px"}')
-      footer
-        nuxt-link(:to='{name: "privacy"}') 個人情報保護方針
-        div &copy; 2019 JavaScriptに関するお知らせ
+  div.root(:class='{"root--not-finished": !$store.state.device.isFinished}')
+    header
+      nuxt-link(:to='{name: "index"}')
+        h1 JavaScriptに関するお知らせ
+        div JavaScriptやCSS、Pythonの技術ブログ
+    nav
+      nuxt-link(:to='{name: "index"}') HOME
+      nuxt-link(:to='{name: "contact"}') CONTACT
+    main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]')
+      root-wrapper
+        bread-crumbs
+        ad-wrapper
+          adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "400px"}')
+        nuxt
+        ad-wrapper
+          adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "400px"}')
+    footer
+      nuxt-link(:to='{name: "privacy"}') 個人情報保護方針
+      div &copy; 2019 JavaScriptに関するお知らせ
 </template>
 
 
@@ -53,21 +52,16 @@ html
   box-sizing border-box
   margin 0
 
-.background--not-finished
+.root--not-finished
   opacity 0 !important
   visibility hidden !important
 
-.background
+body
   width 100%
   display flex
   justify-content center
-  background-color #f6f6f6
-  opacity 1
-  visibility visible
-  transition-duration 1s
-  transition-property opacity, visibility
 
-  #root
+  .root
     width 100%
     max-width 1100px
     height 100%
@@ -77,6 +71,10 @@ html
     justify-content flex-start
     background-color #fefefe
     box-shadow 1px 1px 4px 1px rgba(0,0,0,0.1)
+    opacity 1
+    visibility visible
+    transition-duration 1s
+    transition-property opacity, visibility
     header
       width 100vw
       height 110px
@@ -118,7 +116,6 @@ html
       height 100%
       background-color #f6f6f6
       box-shadow 1px 1px 2px rgba(128,128,128,0.5) inset
-      overflow hidden
     footer
       width 100vw
       height 100px
