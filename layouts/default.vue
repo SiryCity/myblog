@@ -11,10 +11,10 @@
       root-wrapper
         bread-crumbs
         ad-wrapper
-          adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "480px"}')
+          adsbygoogle.responsive-ad--large(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block"}')
         nuxt
         ad-wrapper
-          adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "480px"}')
+          adsbygoogle.responsive-ad--large(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block"}')
     footer
       nuxt-link(:to='{name: "privacy"}') 個人情報保護方針
       div &copy; 2019 JavaScriptに関するお知らせ
@@ -38,6 +38,8 @@ export default {
 </script>
 
 <style lang="stylus">
+
+
 html 
   font-family "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
   font-size 16px
@@ -136,5 +138,34 @@ body
 .main--pc
   width calc(100% - 80px)
   order 30
+
+@media (max-width: 400px)
+  .responsive-ad--large
+    width 320px
+    height 320px
+@media (max-width: 480px) and (min-width: 401px)
+  .responsive-ad--large
+    width 400px
+    height 400px
+@media (max-width: 600px) and (min-width: 481px)
+  .responsive-ad--large
+    width 480px
+    height 480px
+@media (max-width: 720px) and (min-width: 601px)
+  .responsive-ad--large
+    width 600px
+    height 480px
+@media (max-width: 960px) and (min-width: 721px)
+  .responsive-ad--large
+    width 720px
+    height 480px
+@media (max-width: 1079px) and (min-width: 961px)
+  .responsive-ad--large
+    width 960px
+    height 480px
+@media (min-width: 1080px)
+  .responsive-ad--large
+    width 1080px
+    height 480px
 </style>
 
