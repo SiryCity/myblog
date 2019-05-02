@@ -3,7 +3,7 @@
     section-wrapper
       tag-box(:date='getNearbyPosts().curr.date' :tags='getNearbyPosts().curr.tags')
       h1.posts__title {{getNearbyPosts().curr.title}}
-      s-n-s-box
+      //- adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "480px"}')
       div.posts__body(v-html='$md.render(getNearbyPosts().curr.body)')
       div.posts__prev-home-next
         nuxt-link.posts__link--toprev(
@@ -25,7 +25,6 @@ import {createClient} from '~/plugins/contentful.js'
 import ArticleWrapper from '~/components/ArticleWrapper.vue'
 import SectionWrapper from '~/components/SectionWrapper.vue'
 import TagBox from '~/components/TagBox.vue'
-import SNSBox from '~/components/SNSBox.vue'
 
 export default {
     head(){ 
@@ -39,7 +38,6 @@ export default {
       ArticleWrapper,
       SectionWrapper,
       TagBox,
-      SNSBox
     },
     async asyncData({env, payload}){
       if(payload) return payload
