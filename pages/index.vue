@@ -5,7 +5,8 @@
     section-area(:width='$store.state.device.isSP ? "100vw" : "calc(100vw - 80px - 15px * 3 - 330px)"')
       //- NEWS
       small-posts(:posts='posts' heading='NEWS' kana='ニュース' prefix='ブログ「' postfix='」 が投稿されました。')
-      
+      ad-wrapper(:shading='true')
+        adsbygoogle.responsive-ad--medium(:ad-slot='"8176575284"')
     //- 右側
     section-area(:width='$store.state.device.isSP ? "100vw" : "330px"')
       //- THEME
@@ -27,6 +28,9 @@
       section-wrapper(heading='AUTHOR' kana='作者情報')
         a.author(href='https://rm-js.com')
           div MIZUTANI Ryuto
+
+      ad-wrapper(:shading='true')
+        adsbygoogle.responsive-ad--small(:ad-slot='"8176575284"')
       //- BLOG
       large-posts(:posts='posts' heading='BLOG' kana='ブログ')
 </template>
@@ -35,6 +39,7 @@
   import {createClient} from '~/plugins/contentful.js'
   import ArticleWrapper from '~/components/ArticleWrapper.vue'
   import SectionWrapper from '~/components/SectionWrapper.vue'
+  import AdWrapper from '~/components/AdWrapper.vue'
   import SectionArea from '~/components/SectionArea.vue'
   
   import SmallPosts from '~/components/SmallPosts.vue'
@@ -49,6 +54,7 @@
     components:{
       ArticleWrapper,
       SectionWrapper,
+      AdWrapper,
       SectionArea,
       SmallPosts,
       LargePosts,

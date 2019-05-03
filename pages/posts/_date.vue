@@ -3,8 +3,11 @@
     section-wrapper
       tag-box(:date='getNearbyPosts().curr.date' :tags='getNearbyPosts().curr.tags')
       h1.posts__title {{getNearbyPosts().curr.title}}
-      //- adsbygoogle(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block", "width": "320px", "height": "480px"}')
+      ad-wrapper
+        adsbygoogle.responsive-ad--large(:ad-slot='"8176575284"')
       div.posts__body(v-html='$md.render(getNearbyPosts().curr.body)')
+      ad-wrapper
+        adsbygoogle.responsive-ad--large(:ad-slot='"8176575284"')
       div.posts__prev-home-next
         nuxt-link.posts__link--toprev(
           v-if='getNearbyPosts().prev'
@@ -24,29 +27,33 @@
 import {createClient} from '~/plugins/contentful.js'
 import ArticleWrapper from '~/components/ArticleWrapper.vue'
 import SectionWrapper from '~/components/SectionWrapper.vue'
+import AdWrapper from '~/components/AdWrapper.vue'
+import Meta from '~/assets/mixins/meta.js'
 import TagBox from '~/components/TagBox.vue'
 
 export default {
-    head(){ 
-      return {
-        title: this.getNearbyPosts().curr.title,
-        type: 'article',
-        url: this.currentUrl,
-      }
-    },
-    components:{
-      ArticleWrapper,
-      SectionWrapper,
-      TagBox,
-    },
-    async asyncData({env, payload}){
-      if(payload) return payload
-      const contents = await createClient().getEntries({
-        'content_type': env.CTF_BLOG_POST_TYPE_ID,
-        order: '-fields.date',
-      })
-      return {posts: contents.items.map(item => item.fields)}
-    },
+  mixins: [Meta],
+  head(){ 
+    return {
+      title: this.getNearbyPosts().curr.title,
+      type: 'article',
+      url: this.currentUrl,
+    }
+  },
+  components:{
+    ArticleWrapper,
+    SectionWrapper,
+    AdWrapper,
+    TagBox,
+  },
+  async asyncData({env, payload}){
+    if(payload) return payload
+    const contents = await createClient().getEntries({
+      'content_type': env.CTF_BLOG_POST_TYPE_ID,
+      order: '-fields.date',
+    })
+    return {posts: contents.items.map(item => item.fields)}
+  },
 
   methods:{
     getNearbyPosts(){

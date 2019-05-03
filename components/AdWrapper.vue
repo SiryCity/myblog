@@ -1,31 +1,40 @@
 <template lang="pug">
-  ad.ad(:class='[$store.state.device.isSP ? "ad--SP" : "ad--PC"]')
+  ad.ad(:class='{"ad--SP": $store.state.device.isSP, "ad--PC": !$store.state.device.isSP, "ad--shading": shading }')
     div.ad__heading スポンサーリンク
     slot
 </template>
+
+<script>
+export default {
+  props: ['shading']
+}
+</script>
 
 
 <style lang="stylus" scoped>
 .ad
   width 100%
   background-color #fefefe
-  box-shadow 1px 1px 2px rgba(128,128,128,0.5)
   overflow scroll
   display flex
   flex-direction column
-  justify-content space-evenly
+  justify-content center
   align-items center
+  padding 0 15px 15px
 .ad--SP
   border-top 1px dotted #cccccc
 .ad--PC
   margin-bottom 15px
 
+.ad--shading
+  box-shadow 1px 1px 2px rgba(128,128,128,0.5)
+
+
 .ad__heading
-  height 20px
-  line-height 20px
+  height 30px
+  line-height 35px
   color #666
   font-size 12px
-  padding-left 7px
   font-weight bold
 
 </style>

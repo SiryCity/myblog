@@ -10,11 +10,7 @@
     main(:class='[$store.state.device.isSP? "main--sp" : "main--pc"]')
       root-wrapper
         bread-crumbs
-        ad-wrapper
-          adsbygoogle.responsive-ad--large(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block"}')
         nuxt
-        ad-wrapper
-          adsbygoogle.responsive-ad--large(:ad-slot='"8176575284"' :ad-style='{"display": "inline-block"}')
     footer
       nuxt-link(:to='{name: "privacy"}') 個人情報保護方針
       div &copy; 2019 JavaScriptに関するお知らせ
@@ -23,12 +19,10 @@
 
 <script> 
 import RootWrapper from '~/components/RootWrapper.vue'
-import AdWrapper from '~/components/AdWrapper.vue'
 import BreadCrumbs from '~/components/BreadCrumbs.vue'
 export default {
   components:{
     RootWrapper,
-    AdWrapper,
     BreadCrumbs,
   },
   mounted(){
@@ -140,32 +134,57 @@ body
   order 30
 
 @media (max-width: 400px)
+  .responsive-ad--small
+  .responsive-ad--medium
   .responsive-ad--large
     width 320px
     height 320px
+    display inline-block
 @media (max-width: 480px) and (min-width: 401px)
   .responsive-ad--large
-    width 400px
+  .responsive-ad--medium
+    width 370px
     height 400px
+    display inline-block
 @media (max-width: 600px) and (min-width: 481px)
+  .responsive-ad--medium
   .responsive-ad--large
-    width 480px
+    width 450px
     height 480px
+    display inline-block
 @media (max-width: 720px) and (min-width: 601px)
+  .responsive-ad--large
+  .responsive-ad--medium
+    width 570px
+    height 480px
+    display inline-block
+@media (max-width: 960px) and (min-width: 721px)
+  .responsive-ad--medium
+    width 615px
+    height 480px
   .responsive-ad--large
     width 600px
     height 480px
-@media (max-width: 960px) and (min-width: 721px)
-  .responsive-ad--large
-    width 720px
-    height 480px
+    display inline-block
 @media (max-width: 1079px) and (min-width: 961px)
+  .responsive-ad--large
+    width 840px
+    height 480px
+    display inline-block
+@media (min-width: 1080px)
   .responsive-ad--large
     width 960px
     height 480px
-@media (min-width: 1080px)
-  .responsive-ad--large
-    width 1080px
+
+
+@media (min-width: 401px)
+  .responsive-ad--small
+    width 320px
+    height 480px
+
+@media (min-width: 961px)
+  .responsive-ad--medium
+    width 615px
     height 480px
 </style>
 
