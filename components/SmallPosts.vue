@@ -6,7 +6,9 @@ section-wrapper(:heading='heading', :kana='kana')
     :class='{"post--notfirst": i}'
   )
     tag-box(:date='post.date' :tags='post.tags')
-    nuxt-link(:to='{name:"posts-date", params:{date: post.date}}') {{prefix}}{{post.title}}{{postfix}}
+    nuxt-link(:to='{name:"posts-date", params:{date: post.date}}')
+      span.post-small--new(v-if='!i') new
+      | {{prefix}}{{post.title}}{{postfix}}
 </template>
 
 <script>
@@ -32,9 +34,16 @@ export default {
     display inline-block
     color #09c
     text-decoration none
-    margin 4px 0 0 4px
+    margin 4px 0 0 0
     &:hover
       text-decoration underline
+  .post-small--new
+    color white
+    background-color #52B800
+    font-size 10px
+    padding 2px 4px 0
+    font-weight bold
+    margin-right 2px
 
 .post--notfirst
   border-top 1px dotted #cccccc

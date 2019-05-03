@@ -141,8 +141,8 @@ body
     height 320px
     display inline-block
 @media (max-width: 480px) and (min-width: 401px)
-  .responsive-ad--large
   .responsive-ad--medium
+  .responsive-ad--large
     width 370px
     height 400px
     display inline-block
@@ -153,15 +153,12 @@ body
     height 480px
     display inline-block
 @media (max-width: 720px) and (min-width: 601px)
-  .responsive-ad--large
   .responsive-ad--medium
+  .responsive-ad--large
     width 570px
-    height 480px
+    height 570px
     display inline-block
 @media (max-width: 960px) and (min-width: 721px)
-  .responsive-ad--medium
-    width 615px
-    height 480px
   .responsive-ad--large
     width 600px
     height 480px
@@ -182,9 +179,9 @@ body
     width 320px
     height 480px
 
-@media (min-width: 961px)
+@media (min-width: 721px)
   .responsive-ad--medium
     width 615px
-    height 480px
+    height 615px
 </style>
 

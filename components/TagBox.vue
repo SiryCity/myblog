@@ -41,10 +41,10 @@ export default {
 .tag--js
   background-color #FF85AD
 .tag--css
-  background-color #56BF00
+  background-color #FF9900
 .tag--python
   background-color #787FDC
 .tag--others
-  background-color #FF9900
+  background-color #BA3CB8
 
 </style>
