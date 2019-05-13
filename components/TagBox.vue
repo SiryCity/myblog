@@ -9,6 +9,7 @@
         'tag--js': tag === 'JavaScript',
         'tag--css': tag === 'CSS',
         'tag--python': tag === 'Python',
+        'tag--html': tag === 'HTML',
         'tag--others': tag === 'Others',
       }`
     ) {{tag}}
@@ -44,6 +45,8 @@ export default {
   background-color #FF9900
 .tag--python
   background-color #787FDC
+.tag--html
+  background-color #E5457D
 .tag--others
   background-color #BA3CB8
 
