@@ -23,6 +23,9 @@
         nuxt-link.theme(:to='{name:"tags-tagname", params:{tagname: "HTML"}}')
           img(src='~/assets/html.svg')
           div HTML
+        nuxt-link.theme(:to='{name:"tags-tagname", params:{tagname: "Math"}}')
+          img(src='~/assets/math.svg')
+          div Math
         nuxt-link.theme(:to='{name:"tags-tagname", params:{tagname: "Others"}}')
           img(src='~/assets/icon.svg')
           div Others

@@ -13,6 +13,10 @@ section-wrapper(:heading='heading', :kana='kana')
       ? css
       : post.tags[0] === 'Python'
       ? python
+      : post.tags[0] === 'HTML'
+      ? html
+      : post.tags[0] === 'Math'
+      ? math
       : icon
     `)
     div
@@ -27,6 +31,8 @@ import icon from '~/assets/icon.svg'
 import js from '~/assets/js.svg'
 import css from '~/assets/css.svg'
 import python from '~/assets/python.svg'
+import html from '~/assets/html.svg'
+import math from '~/assets/math.svg'
 export default {
   props: ['posts', 'heading', 'kana'],
   components:{
@@ -37,6 +43,8 @@ export default {
     js: () => js,
     css: () => css,
     python: () => python,
+    html: () => html,
+    math: () => math,
   }
 }
 </script>

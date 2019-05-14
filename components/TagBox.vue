@@ -10,6 +10,7 @@
         'tag--css': tag === 'CSS',
         'tag--python': tag === 'Python',
         'tag--html': tag === 'HTML',
+        'tag--math': tag === 'Math',
         'tag--others': tag === 'Others',
       }`
     ) {{tag}}
@@ -47,6 +48,8 @@ export default {
   background-color #787FDC
 .tag--html
   background-color #E5457D
+.tag--math
+  background-color #56BF00
 .tag--others
   background-color #BA3CB8
 
