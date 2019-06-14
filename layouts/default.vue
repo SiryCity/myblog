@@ -137,7 +137,7 @@ body
   .responsive-ad--medium::-webkit-scrollbar
   .responsive-ad--large::-webkit-scrollbar
     display none
-}
+    
 @media (max-width: 400px)
   .responsive-ad--small
   .responsive-ad--medium
