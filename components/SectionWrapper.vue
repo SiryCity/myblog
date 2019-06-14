@@ -44,7 +44,7 @@ export default {
   margin-bottom 5px
   font-family serif
   font-weight bold 
-  filter blur(.5px)
+  //filter blur(.5px)
   position relative
   &:first-letter
     font-size 40px

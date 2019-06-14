@@ -57,6 +57,7 @@ export default {
 
   methods:{
     getNearbyPosts(){
+      console.dir(this.posts[0].body)
       return this.posts.reduce((prev, curr, i, posts) =>
         prev
         || curr.date !== this.$route.params.date

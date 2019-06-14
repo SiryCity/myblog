@@ -133,6 +133,11 @@ body
   width calc(100% - 80px)
   order 30
 
+  .responsive-ad--small::-webkit-scrollbar
+  .responsive-ad--medium::-webkit-scrollbar
+  .responsive-ad--large::-webkit-scrollbar
+    display none
+}
 @media (max-width: 400px)
   .responsive-ad--small
   .responsive-ad--medium
